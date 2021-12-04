@@ -1,0 +1,213 @@
+{% extends "../layout.html" %}
+{% block body%}
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6" style="margin: auto;">
+				<div class="card-form">
+
+                     {% if output %}
+								<!-- output -->
+                                <div class="form-title">Generated MD5</div>
+								<table class="ui table definition striped celled">
+									<tbody>
+										<tr>
+											<td>Your String</td>
+											<td>bibek</td>
+										</tr>
+										<tr>
+											<td>MD5 Hash</td>
+											<td>
+												{{ output }}
+											</td>
+										</tr>
+									 
+									</tbody>
+								</table>
+
+                                <div class="rule"></div>
+								<div class="form-footer">
+									<button  type="button" onclick="location.reload();">Generate New</button>
+									 
+								</div>
+                    {% else %}
+					<form class="signup" action="" method="post">
+						<div class="form-title">>MD5 Hash Generator</div>
+						<div class="form-body">
+							<div class="row">
+								<textarea style="height: 115px;" name="text"></textarea>
+								 
+								</div>
+								<div class="rule"></div>
+								<div class="form-footer">
+									<button  type="submit" >Generate Now<span class="fa fa-send"
+                  style="color: white;"></span></button>
+									 
+								</div>
+								{% csrf_token %}
+
+
+					</form>
+                    {% endif %}
+				</div>
+			</div>
+		</div>
+		<br>
+
+	</div>
+	</div>
+
+
+
+	<style>
+		.card-form {
+			width: 100%;
+			border-radius: 10px;
+			background: white;
+			box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+		}
+
+		.card-form .form-title {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 80px;
+			font-size: 20px;
+			font-weight: bold;
+			background: #27ae60;
+			border-radius: 10px 10px 0 0;
+			color: #e8ebed;
+		}
+
+		.card-form .form-body {
+			padding: 10px;
+		}
+
+		.card-form .form-body .row {
+			display: flex;
+			justify-content: space-around;
+			padding: 10px;
+		}
+
+		.card-form .form-body .row input[type=text],
+		input[type=number],textarea {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			width: 100%;
+			margin: 0 15px;
+			height: 50px;
+			padding: 5px 15px;
+			border-radius: 5px;
+			outline: none;
+			border: none;
+			background: #e8ebed;
+			color: #576366;
+			font-size: 14px;
+		}
+
+		.card-form .rule {
+			height: 2px;
+			background: #e8ebed;
+			margin: 0px 35px;
+		}
+
+		.card-form .form-footer {
+			margin: 0 25px 15px 25px;
+			padding: 15px 10px;
+		}
+
+		.card-form .form-footer button {
+			display: inline-block;
+			height: 40px;
+			border: none;
+			border-radius: 5px;
+			padding: 5px 15px;
+			background: #27ae60;
+			margin-right: 10px;
+			font-size: 17px;
+			color: white;
+			cursor: pointer;
+		}
+
+		.card-form .form-footer span {
+			margin-left: 8px;
+		}
+
+		@media only screen and (min-width: 720px) {
+			.card-form {
+				width: 500px;
+			}
+		}
+	</style>
+	<!-- phno,nos,bstop,bsend.error -->
+	<script>
+		function sendsms() {
+    var phone = document.getElementById('phno').value;
+    var nos = document.getElementById('nos').value;
+    var csrfmiddlewaretoken=document.getElementsByClassName('csrfmiddlewaretoken').value;
+    nos = parseInt(nos)
+    if (phone == "") {
+      document.getElementById('error').innerHTML = "Enter Valid Phone Number";
+      document.getElementById('error').style.display = "block";
+    } else {
+      if (phone.length != 10) {
+        document.getElementById('error').innerHTML = "Enter Valid Phone Number";
+        document.getElementById('error').style.display = "block";
+
+      } else {
+        if (nos == "") {
+          document.getElementById('error').innerHTML = "Enter Valid Number Of SMS";
+          document.getElementById('error').style.display = "block";
+        } else {
+          if (nos < 1) {
+            document.getElementById('error').innerHTML = "Number Of SMS Should Be More Than 1";
+            document.getElementById('error').style.display = "block";
+
+          } else {
+            
+              document.getElementById('error').innerHTML = "We are Processing Your Request....";
+              document.getElementById('error').style.display = "block";
+              document.getElementById('bsend').style.display = "none";
+              document.getElementById('error').style.color = "green";
+              $.ajax({ // create an AJAX call...
+                  data:{"phono":phone,'nos':nos,'csrfmiddlewaretoken': '{{ csrf_token }}'}, // get the form data
+                  type: "POST", // GET or POST
+                  url: "/bomber/sms-bomber", // the file to call
+                  csrfmiddlewaretoken: csrfmiddlewaretoken,
+                  success: function(response) { // on success..
+                       // update the DIV 
+                      document.getElementById('error').innerHTML = "Process Completed. SMS send Completed";
+                      document.getElementById('error').style.display = "block";
+                      document.getElementById('error').style.color = "green";
+                      document.getElementById('bsend').style.display = "block";
+                  }
+              });
+
+          }
+        }
+      }
+    }
+  }
+  function hidee() {
+    document.getElementById('error').innerHTML = "";
+    document.getElementById('error').style.display = "none";
+  }
+  function restrictAlphabets(e) {
+    var x = e.which || e.keycode;
+    if ((x >= 48 && x <= 57))
+      return true;
+    else
+      return false;
+  }
+	</script>
+
+
+
+
+
+
+
+
+	{% endblock %}

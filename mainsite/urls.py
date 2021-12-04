@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('bomber/', include('bomber.urls')),
     path('image-converter/', include('image_converter.urls')),
+    path('encryption-decryption/', include('encryption_decryption.urls')),
     
 ]
 if settings.DEBUG:
