@@ -8,7 +8,7 @@
 
                      {% if output %}
 								<!-- output -->
-                                <div class="form-title">Generated MD5</div>
+                                <div class="form-title">Your {{ op_type }} Output</div>
 								<table class="ui table definition striped celled">
 									<tbody>
 										<tr>
@@ -16,9 +16,12 @@
 											<td>{{ input_text }}</td>
 										</tr>
 										<tr>
-											<td>MD5 Hash</td>
-											<td>
-												{{ output }}
+											<td colspan="2">{{ op_type }}</td>
+                                        </tr>
+                                        <tr>
+											<td colspan="2">
+                                                <textarea oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' style="width:98%;height:120px">{{ output }}</textarea>
+												
 											</td>
 										</tr>
 									 
@@ -32,12 +35,25 @@
 								</div>
                     {% else %}
 					<form class="signup" action="" method="post">
-						<div class="form-title">>MD5 Hash Generator</div>
+						<div class="form-title">>SHA Hash Generator</div>
 						<div class="form-body">
 							<div class="row">
-								<textarea style="height: 115px;" name="text"></textarea>
+								<textarea placeholder="Your Text" required style="height: 115px;" name="text"></textarea>
 								 
 								</div>
+                                
+                                  <input type="radio"  name="type" value="SHA256" id="SHA256" required>
+                                  <label for="SHA256">SHA256</label>
+                                  <input type="radio"  name="type" value="SHA384" id="SHA384">
+                                  <label for="SHA384">SHA384</label>
+                                  <input type="radio"  name="type" value="SHA224" id="SHA224">
+                                  <label for="SHA224">SHA224</label>
+                                  <input type="radio"  name="type" value="SHA512" id="SHA512">
+                                  <label for="SHA512">SHA512</label>
+                                  <input type="radio"  name="type" value="SHA1" id="SHA1">
+                                  <label for="SHA1">SHA1</label>
+                                    
+                                
 								<div class="rule"></div>
 								<div class="form-footer">
 									<button  type="submit" >Generate Now<span class="fa fa-send"
@@ -91,7 +107,7 @@
 		}
 
 		.card-form .form-body .row input[type=text],
-		input[type=number],textarea {
+		input[type=number],textarea,select {
 			-webkit-appearance: none;
 			-moz-appearance: none;
 			appearance: none;
