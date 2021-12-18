@@ -9,6 +9,9 @@ from django.core.files.storage import FileSystemStorage
 import os 
 from datetime import datetime
 import img2pdf
+import random
+from PyPDF2 import PdfFileMerger, PdfFileReader
+
 
 def jeg_to_png(request):
     if request.method == 'POST' and request.FILES['myfile']:
@@ -132,5 +135,34 @@ def image_to_pdf(request):
                 'error': "You have uploaded invalid image format. Allowed Format Are JPG,JPEG,PNG."
             })
     return render(request,"image_converter/image-to-pdf.html")
+
+
+def merge_pdf(request):
+    if request.method == 'POST':
+        mergedObject = PdfFileMerger()
+        total_uploaded_files=[]
+        print("==============>",len(request.FILES.getlist("file")))
+        for count, f in enumerate(request.FILES.getlist("file")):
+            curr_dt = datetime.now()
+            timestamp = int(round(curr_dt.timestamp()))
+            file_name='media/pdf_'+str(timestamp)+str(random.randint(0,20))+'.pdf'
+            total_uploaded_files.append(file_name)
+            with open(file_name, 'wb+') as destination:
+                for chunk in f.chunks():
+                    destination.write(chunk) 
+            mergedObject.append(PdfFileReader(file_name, 'r'))
+            
+        curr_dt = datetime.now()
+        timestamp = int(round(curr_dt.timestamp()))
+        output_pdf_merge="your_merge_pdf_"+str(timestamp)+str(random.randint(0,100))+".pdf"
+        mergedObject.write(output_pdf_merge)
+        for i in range(len(total_uploaded_files)):
+            os.remove(total_uploaded_files[i])
+        return HttpResponse("File(s) uploaded!")
+    else:
+        return render(request,"image_converter/merge-pdf.html")
+    
+
+
 
 

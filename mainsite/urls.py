@@ -23,6 +23,7 @@ urlpatterns = [
     path('bomber/', include('bomber.urls')),
     path('image-converter/', include('image_converter.urls')),
     path('encryption-decryption/', include('encryption_decryption.urls')),
+    path('text-converter/', include('text_converter.urls')),
     
 ]
 if settings.DEBUG:

@@ -6,4 +6,5 @@ urlpatterns = [
     path("png-to-jpg",views.png_to_jpg,name="Png To JPG Image Converter"),
     path("png-to-jpeg",views.png_to_jpeg,name="Png To JPEG Image Converter"),
     path("image-to-pdf",views.image_to_pdf,name="Image To PDF Converter"),
+    path("merge-pdf",views.merge_pdf,name="Merge PDF"),
 ]
