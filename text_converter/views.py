@@ -66,3 +66,26 @@ def replace_text(request):
                 'output': result
             })
     return render(request,"text_converter/replace_text.html")
+
+
+def repeat_text(request):
+    if request.method == 'POST':
+        text=request.POST["text"]
+        nooftime=request.POST["nooftime"]
+        result=""
+        for i in range(int(nooftime)):
+            result=result+text
+        return render(request, 'text_converter/repeat_text.html', {
+                'output': result
+            })
+    return render(request,"text_converter/repeat_text.html")
+
+
+def text_reverse(request):
+    if request.method == 'POST':
+        text=request.POST["text"]
+        return render(request, 'text_converter/text_reverse.html', {
+                'output': text[::-1]
+            })
+    return render(request,"text_converter/text_reverse.html")
+

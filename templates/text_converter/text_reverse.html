@@ -8,34 +8,28 @@
 
                      {% if output %}
 								<!-- output -->
-                                <div class="form-title">Your Output Text</div>
+                                <div class="form-title">Your Converted Text</div>
                                 <p style="margin-top: 10px;padding: 10px;text-align: justify;margin-bottom: 20px;">{{ output }}</p>
 
                                 <div class="rule"></div>
 								<div class="form-footer">
-									<button  type="button" onclick="location.reload();">Replace New</button>
+									<button  type="button" onclick="location.reload();">Generate New</button>
 									 
 								</div>
                     {% else %}
 					<form class="signup" action="" method="post">
-						<div class="form-title">>Find And Replace Text</div>
+						<div class="form-title">>Text To Reverse Text</div>
 						<div class="form-body">
 							<div class="row">
 								<textarea placeholder="Your Text" required style="height: 115px;" name="text"></textarea>
 								 
 								</div>
-                            <div class="row">
-                                <input placeholder="Enter Text To Find" type="text" name="tofind">
-							</div>
-                            <div class="row">
-                                <input placeholder="Enter Text To Replace" type="text" name="replace">
-							</div>
                                 
                               
                                 
 								<div class="rule"></div>
 								<div class="form-footer">
-									<button  type="submit" >Replace Now<span class="fa fa-send"
+									<button  type="submit" >Reverse Now<span class="fa fa-send"
                   style="color: white;"></span></button>
 									 
 								</div>
