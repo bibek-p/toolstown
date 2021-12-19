@@ -28,6 +28,7 @@ urlpatterns = [
     path("",views.index_home,name="Home Page"),
     path("terms-and-condition",views.terms_and_condition,name="Terms & Conditions"),
     path("privacy-policy",views.privacy_policy,name="Privacy Policy"),
+    path("contact",views.contact,name="Contact Us"),
     
 ]
 urlpatterns += staticfiles_urlpatterns()
