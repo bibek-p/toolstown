@@ -18,13 +18,14 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
+from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('bomber/', include('bomber.urls')),
     path('image-converter/', include('image_converter.urls')),
     path('encryption-decryption/', include('encryption_decryption.urls')),
     path('text-converter/', include('text_converter.urls')),
+    path("",views.index_home,name="Home Page"),
     
 ]
 urlpatterns += staticfiles_urlpatterns()
