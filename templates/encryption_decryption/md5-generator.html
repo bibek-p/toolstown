@@ -1,4 +1,21 @@
 {% extends "../layout.html" %}
+
+{% block meta %}
+<title>MD5 Hash Generator - Online</title>
+<meta property="og:title" content="MD5 Hash Generator" />
+<meta name="description"
+	content="A tool for creating an MD5 hash from a string. Use this MD5 fast, free tool to create an MD5 hash from a string." />
+<meta property="og:description"
+	content="A tool for creating an MD5 hash from a string. Use this fast, free tool to create an MD5 hash from a string." />
+<meta name="keywords"
+	content="MD5, md5, hash, generator, create, string, encode, encrypt, password,md5 generator php,md5 generator javascript,md5 generator java,md5 generator for file,md5 generator python,md5 generator password,md5 generator windows,md5 generator with salt,md5 generator online,md5 generator angular,md5 generator apk,md5 generator algorithm,md5 hash generator api,md5 hash generator application,md5 hash generator apk,md5 hash generator app,md5 generator for a file,md5 generator bulk,md5 generator base64,md5 byte generator,generate md5 bash,generate md5 browser,md5 hash generator binary,md5 128 bit generator,best md5 generator software,md5 generator c#,md5 generator command line windows,md5 generator com,md5 collision generator,md5 checksum generator,md5 collision generator online,md5 collision generator python,md5 crypt generator,md5 generator download,md5 generator decrypt,md5 collision generator download,md5 generator windows download,md5 password generator download,md5 hash generator delphi,md5 hash password generator download,md5 hash generator free download,md5 generator excel,md5 generator exe,md5 encryption generator,md5 hash generator excel,md5 hash generator exe,md5 hash generator example,md5 hash generator java example,md5 entschlüsseln generator,md5 generator for mac,md5 generator free download,md5 generator for wordpress,md5 generator function,generate md5 from string,generate md5 file windows,generate md5 file linux,md5 generate go,md5 hash generator github,md5 collision generator github,golang md5 generator,google md5 generator,md5 generator hash,md5 generator hex,md5 hash generator for file,md5 hash generator download,md5 hash generator java,md5 hash generator python,md5 hash generator c#,md5 hash generator windows,md5 generator in linux,md5 id generator,md5 password generator in php,md5 hash generator in java,md5 hash generator in python,md5 hash generator image,md5 hash generator in c#,md5 hash generator in excel,is md5 decrypt possible,is md5 hash reversible,what is the use of md5 checksum,md5 hash generator javascript,md5 hash generator node js,md5 generator kali,md5 key generator,md5 collision generator kali,md5 secret key generator,md5 authentication key generator,hmac-md5 key generator,md5 generator linux,md5 generator linux command,md5 generator lua,md5 list generator,md5 lowercase generator,md5 hash generator linux,md5 generator multiple lines,md5 generator mac,md5 hash generator mac,md5 hash generator miracle salad,md5 checksum generator mac,md5 hash generator mysql,md5 hash generator microsoft,md5 hash generator multiple files,md5 generator npm,md5 name generator,md5 random number generator,notepad++ md5 generator,md5 generator online file,md5 generator open source,generate md5 of file linux,generate md5 of file python,generate md5 on windows,generate md5 oracle,generate md5 of file windows,md5 generator powershell,md5 generator picture,md5 password generator wordpress,md5 password generator linux,p_generate_md5,md5 code generator,md5 generator random,md5 generator reverse,md5 hash generator redshift,raw md5 generator,r generate md5 hash,md5 generator salt,md5 generator software,md5 generator source code,md5 signature generator,md5 salt generator online,md5 hash generator sql server,md5 generator to text,md5 generator tool download,md5 to text generator online,md5 hash generator in talend,md5 generator ubuntu,md5 generator utility,md5 generator uppercase,md5 uuid generator,generate md5 unix,md5 value generator,md5 hash generator vba,md5 verschlüsselung generator,md5 generator wordpress,md5 generator windows 10,md5 hash generator with key,md5 tutorial,md5.gromweb,md5 program,md5 video,md5 generator zip file,md5 hash generator zip file,md5 hash generator 128 bit,md5 hash generator 16 characters" />
+<meta name="robots" content="index, follow" />
+<meta name="language" content="English">
+<meta name="revisit-after" content="1 days">
+<meta name="author" content="Tools Band">
+{% endblock meta %}
+
+
 {% block body%}
 <div class="section">
 	<div class="container">
@@ -6,49 +23,49 @@
 			<div class="col-sm-6" style="margin: auto;">
 				<div class="card-form">
 
-                     {% if output %}
-								<!-- output -->
-                                <div class="form-title">Generated MD5</div>
-								<table class="ui table definition striped celled">
-									<tbody>
-										<tr>
-											<td>Your String</td>
-											<td>{{ input_text }}</td>
-										</tr>
-										<tr>
-											<td>MD5 Hash</td>
-											<td>
-												{{ output }}
-											</td>
-										</tr>
-									 
-									</tbody>
-								</table>
+					{% if output %}
+					<!-- output -->
+					<div class="form-title">Generated MD5</div>
+					<table class="ui table definition striped celled">
+						<tbody>
+							<tr>
+								<td>Your String</td>
+								<td>{{ input_text }}</td>
+							</tr>
+							<tr>
+								<td>MD5 Hash</td>
+								<td>
+									{{ output }}
+								</td>
+							</tr>
 
-                                <div class="rule"></div>
-								<div class="form-footer">
-									<button  type="button" onclick="location.reload();">Generate New</button>
-									 
-								</div>
-                    {% else %}
+						</tbody>
+					</table>
+
+					<div class="rule"></div>
+					<div class="form-footer">
+						<button  type="button" onclick="location.reload();">Generate New</button>
+
+					</div>
+					{% else %}
 					<form class="signup" action="" method="post">
 						<div class="form-title">>MD5 Hash Generator</div>
 						<div class="form-body">
 							<div class="row">
 								<textarea style="height: 115px;" name="text"></textarea>
-								 
-								</div>
-								<div class="rule"></div>
-								<div class="form-footer">
-									<button  type="submit" >Generate Now<span class="fa fa-send"
+
+							</div>
+							<div class="rule"></div>
+							<div class="form-footer">
+								<button  type="submit" >Generate Now<span class="fa fa-send"
                   style="color: white;"></span></button>
-									 
-								</div>
-								{% csrf_token %}
+
+							</div>
+							{% csrf_token %}
 
 
 					</form>
-                    {% endif %}
+					{% endif %}
 				</div>
 			</div>
 		</div>
@@ -91,7 +108,8 @@
 		}
 
 		.card-form .form-body .row input[type=text],
-		input[type=number],textarea {
+		input[type=number],
+		textarea {
 			-webkit-appearance: none;
 			-moz-appearance: none;
 			appearance: none;
