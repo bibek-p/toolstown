@@ -129,8 +129,10 @@ def text_file_to_json(request):
             if len(key_list) > 0:
                 mydict[key_list[no_of_key_found-1]]=templist
             os.remove(source_media+filename)
+            finals=str(mydict)
+            finals=finals.replace("'",'"')
             return render(request, 'text_converter/text-to-json.html', {
-                'output': str(mydict)
+                'output': finals
             })
         else:
             return render(request, 'text_converter/text-to-json.html', {
