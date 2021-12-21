@@ -8,9 +8,9 @@ import requests,json
 # Create your views here.
 
 
-def ok_credit(phoneno):
+def ok_credit(phoneno): 
   url="https://web.okcredit.in/api/authn/v1.0/otp:request"
-  payload='{"mobile":"6371486421","mode":0}'
+  payload='{"mobile":"'+phoneno+'","mode":0}'
   headers = {
     'Content-Type': 'application/json'
   }
@@ -35,7 +35,7 @@ def mybillbook(phoneno):
 def KhataBook_sms(phoneno):
   url = "https://api.khatabook.in/v1/auth/request-otp"
 
-  payload = "{\"country_code\":\"+91\",\"phone\":\"6371486421\",\"app_signature\":\"Jc/Zu7qNqQ2\"}"
+  payload = "{\"country_code\":\"+91\",\"phone\":\""+phoneno+"\",\"app_signature\":\"Jc/Zu7qNqQ2\"}"
   headers = {
       'content-type': "application/json",
       'cache-control': "no-cache",
@@ -47,7 +47,7 @@ def KhataBook_sms(phoneno):
 def Byjus_sms(phoneno):
   url = "https://bcas-prod.byjusweb.com/api/v2/send-otp"
 
-  payload = "{\"phoneNumber\": \"6371486421\",\r\n\"page\": \"free-trial-classes\"}"
+  payload = "{\"phoneNumber\": \""+phoneno+"\",\r\n\"page\": \"free-trial-classes\"}"
   headers = {
       'content-type': "application/json",
       'cache-control': "no-cache",
