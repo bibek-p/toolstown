@@ -10,4 +10,5 @@ urlpatterns = [
     path("replace-text",views.replace_text,name="Replace Text"),
     path("text-reverse",views.text_reverse,name="Text Reverse"),
     path("repeat-text",views.repeat_text,name="Repeat Text"),
+    path("text-file-to-json",views.text_file_to_json,name="Text File To Json Object"),
 ]

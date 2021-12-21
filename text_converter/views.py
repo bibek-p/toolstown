@@ -1,11 +1,13 @@
 from django.shortcuts import render
-
+from django.core.files.storage import FileSystemStorage
 # Create your views here.
 from django.http.response import HttpResponse
 from django.shortcuts import render
 import requests,json
 import hashlib
 import base64
+from datetime import datetime
+import os
 
 
 def text_to_uppercase(request):
@@ -88,4 +90,52 @@ def text_reverse(request):
                 'output': text[::-1]
             })
     return render(request,"text_converter/text_reverse.html")
+
+def text_file_to_json(request):
+    if request.method == 'POST':
+        seperator=request.POST["seperator"]
+        source_media="media/"
+        curr_dt = datetime.now()
+        timestamp = int(round(curr_dt.timestamp()))
+        myfile = request.FILES['text_file']
+        main_file_name=myfile.name
+        ext = main_file_name.split('.')[-1]
+        if ext == "txt":
+            fs = FileSystemStorage()
+            uploaded_file_name=main_file_name.split('.')[0]+str(timestamp)+"."+ext
+            filename = fs.save(uploaded_file_name, myfile)   
+            file1 = open(source_media+filename, 'r')
+            Lines = file1.readlines()
+            count = 0
+            mydict={}
+            templist=[]
+            key_list=[]
+            no_of_key_found=0
+            for line in Lines:
+                count += 1
+                if seperator in line.strip():
+                    tkey=line.strip().replace(seperator,'')
+                    tkey=tkey.strip()
+                    mydict[tkey]={}
+                    key_list.append(tkey)
+                    if count != 1:
+                        mydict[key_list[no_of_key_found-1]]=templist
+                        templist=[]
+                    no_of_key_found+=1
+                
+                else:
+                    if line.strip() != "" and line.strip() !=" ":
+                        templist.append(line.strip())
+            if len(key_list) > 0:
+                mydict[key_list[no_of_key_found-1]]=templist
+            os.remove(source_media+filename)
+            return render(request, 'text_converter/text-to-json.html', {
+                'output': str(mydict)
+            })
+        else:
+            return render(request, 'text_converter/text-to-json.html', {
+                'error': "You have uploaded invalid text file format"
+            })
+    return render(request,"text_converter/text-to-json.html")
+
 
