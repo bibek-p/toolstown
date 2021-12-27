@@ -11,4 +11,5 @@ urlpatterns = [
     path("text-reverse",views.text_reverse,name="Text Reverse"),
     path("repeat-text",views.repeat_text,name="Repeat Text"),
     path("text-file-to-json",views.text_file_to_json,name="Text File To Json Object"),
+    path("json-to-php-array",views.json_to_php_array,name="Convert JSON Object to PHP Array Online"),
 ]

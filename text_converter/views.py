@@ -140,4 +140,14 @@ def text_file_to_json(request):
             })
     return render(request,"text_converter/text-to-json.html")
 
-
+def json_to_php_array(request):
+    if request.method == 'POST':
+        text=request.POST["text"]
+        url = "https://jsontophp.com/"
+        payload={'jayson': text}
+        headers = {}
+        response = requests.request("POST", url, headers=headers, data=payload)
+        return render(request, 'text_converter/json-to-php-array.html', {
+                'output': response.text
+            })
+    return render(request,"text_converter/json-to-php-array.html")

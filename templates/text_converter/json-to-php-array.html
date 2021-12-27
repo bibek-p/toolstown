@@ -1,0 +1,154 @@
+{% extends "../layout.html" %}
+
+{% block meta %}
+<title>Convert JSON Object to PHP Array Online - ToolsBand</title>
+<meta name="keywords" content="json, json to array, jsonarray, json2array, json_decode, json to php array, json 2 array, json to php array converter,json to php array converter online,json to php object converter, json to csv converter php,  json to xml converter php, json to html converter php, json to php converter online,  php json to csv converter, array to json converter php, html to json conver in php">
+<meta name="description" content="JSON to PHP array converter online - Convert the given JSON object or Array into beautified PHP array that can be used instantly into your PHP file as a PHP array">
+<meta name="og:title" content="Convert JSON Object to PHP Array Online" />
+<meta name="og:description" content="JSON to PHP array converter online - Convert the given JSON object or Array into beautified PHP array that can be used instantly into your PHP file as a PHP array">
+<meta name="og:site_name" content="JSON to PHP Array" />
+<meta name="robots" content="index, follow" />
+<meta name="language" content="English">
+<meta name="revisit-after" content="1 days">
+<meta name="author" content="Tools Band">
+{% endblock meta %}
+
+{% block body%}
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6" style="margin: auto;">
+				<div class="card-form">
+
+					{% if output %}
+					<!-- output -->
+					<div class="form-title">Your Output PHP Array</div>
+					<p style="margin-top: 10px;padding: 10px;text-align: justify;margin-bottom: 20px;">{{ output }}</p>
+
+					<div class="rule"></div>
+					<div class="form-footer">
+						<button  type="button" onclick="location.reload();">Generate New</button>
+
+					</div>
+					{% else %}
+					<form class="signup" action="" method="post">
+						<div class="form-title">>Convert JSON Object to PHP Array Online</div>
+						<div class="form-body">
+							<div class="row">
+								<textarea placeholder="Your Text" required style="height: 115px;" name="text"></textarea>
+
+							</div>
+							<div class="rule"></div>
+							<div class="form-footer">
+								<button  type="submit" >Convert Now<span class="fa fa-send"
+                  style="color: white;"></span></button>
+
+							</div>
+							{% csrf_token %}
+
+
+					</form>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		<br>
+
+	</div>
+	</div>
+
+
+
+	<style>
+		.card-form {
+			width: 100%;
+			border-radius: 10px;
+			background: white;
+			box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+		}
+
+		.card-form .form-title {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 80px;
+			font-size: 20px;
+			font-weight: bold;
+			background: #27ae60;
+			border-radius: 10px 10px 0 0;
+			color: #e8ebed;
+		}
+
+		.card-form .form-body {
+			padding: 10px;
+		}
+
+		.card-form .form-body .row {
+			display: flex;
+			justify-content: space-around;
+			padding: 10px;
+		}
+
+		.card-form .form-body .row input[type=text],
+		input[type=number],
+		textarea,
+		select {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			width: 100%;
+			margin: 0 15px;
+			height: 50px;
+			padding: 5px 15px;
+			border-radius: 5px;
+			outline: none;
+			border: none;
+			background: #e8ebed;
+			color: #576366;
+			font-size: 14px;
+		}
+
+		.card-form .rule {
+			height: 2px;
+			background: #e8ebed;
+			margin: 0px 35px;
+		}
+
+		.card-form .form-footer {
+			margin: 0 25px 15px 25px;
+			padding: 15px 10px;
+		}
+
+		.card-form .form-footer button {
+			display: inline-block;
+			height: 40px;
+			border: none;
+			border-radius: 5px;
+			padding: 5px 15px;
+			background: #27ae60;
+			margin-right: 10px;
+			font-size: 17px;
+			color: white;
+			cursor: pointer;
+		}
+
+		.card-form .form-footer span {
+			margin-left: 8px;
+		}
+
+		@media only screen and (min-width: 720px) {
+			.card-form {
+				width: 500px;
+			}
+		}
+	</style>
+
+
+
+
+
+
+
+
+	{% endblock %}
