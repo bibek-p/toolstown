@@ -9,5 +9,6 @@ urlpatterns = [
     path("sha384-hash-generator",views.ssh_generators,name="SHA-384 Hash Generator"),
     path("sha224-hash-generator",views.ssh_generators,name="SHA-224 Hash Generator"),
     path("sha1-hash-generator",views.ssh_generators,name="SHA-1 Hash Generator"),
+    path("audio-to-base64",views.audio_tobase64,name="Audio To Base64"),
     
 ]

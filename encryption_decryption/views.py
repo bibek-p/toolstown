@@ -63,3 +63,7 @@ def ssh_generators(request):
                 'output': result.hexdigest(),'input_text': text,'op_type':optype
             })
     return render(request,"encryption_decryption/sha-hash-generator.html")
+
+
+def audio_tobase64(request):
+    return render(request,"encryption_decryption/audio-to-base64.html")
