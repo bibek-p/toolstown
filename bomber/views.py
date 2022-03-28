@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.http.response import HttpResponse
 from django.shortcuts import render
 import requests,json
+from bomber.models import ToolsDetails
 
 # Create your views here.
 
@@ -81,4 +82,6 @@ def index(request):
                     Byjus_sms(phoneno)
         return HttpResponse(1)
     else:
-        return render(request,"bomber/sms_bomber.html")
+        page_details=ToolsDetails.objects.filter(toolsname="SMS Bomber")
+        page_details={"page_details":page_details}
+        return render(request,"bomber/sms_bomber.html",page_details)

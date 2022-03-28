@@ -1,18 +1,4 @@
 {% extends "../layout.html" %}
-
-{% block meta %}
-<title>Text Replace Online Tools - Find and Replace - Multiple Text Online</title>
-<meta name="description"
-	content="Use Online Find and Replace Tool to find multiple text and replace them with other multiple text you wish to replace with." />
-<meta name="keywords"
-	content="replace text online pdf,replace text online regex,replace image text online,replace multiple text online,javascript replace text online,replace multiline text online,replace text in video online,replace text with newline online,replace text online tool,replace text with online,replace text in an image online,replace a text online,replace text with line break online,bulk text replace online,replace character in text online,replace text in pdf document online,replace text online editor,edit pdf replace text online,online pdf text replace editor free,online text editor search replace,replace text online free,pdf replace text online free,pdf editor text replace online free,replace text from image online,find and replace text in file online,online text find and replace,online text replace,replace online text,how to replace text online,replace text online in pdf,replace text in online,replace text in image online,find and replace text online,replace text in jpg online,javascript replace specific string,text.replace js,text.replace javascript,js to replace string,html replace text javascript,replace text with new line online,online text replace new line,replace text on image online,replace text on pdf online,replace text in picture online,replace text in string online,pdf text replace tool online,replace text using regex online,online replace text with new line,replace text with regex online,replace online" />
-<meta name="robots" content="index, follow" />
-<meta name="language" content="English">
-<meta name="revisit-after" content="1 days">
-<meta name="author" content="Tools Band">
-{% endblock meta %}
-
-
 {% block body%}
 <div class="section">
 	<div class="container">
@@ -20,137 +6,148 @@
 			<div class="col-sm-6" style="margin: auto;">
 				<div class="card-form">
 
-                     {% if output %}
-								<!-- output -->
-                                <div class="form-title">Your Output Text</div>
-                                <p style="margin-top: 10px;padding: 10px;text-align: justify;margin-bottom: 20px;">{{ output }}</p>
+					{% if output %}
+					<!-- output -->
+					<div class="form-title">Your Output Text</div>
+					<p style="margin-top: 10px;padding: 10px;text-align: justify;margin-bottom: 20px;">{{ output }}</p>
 
-                                <div class="rule"></div>
-								<div class="form-footer">
-									<button  type="button" onclick="location.reload();">Replace New</button>
-									 
-								</div>
-                    {% else %}
+					<div class="rule"></div>
+					<div class="form-footer">
+						<button type="button" onclick="location.reload();">Replace New</button>
+
+					</div>
+					{% else %}
 					<form class="signup" action="" method="post">
 						<div class="form-title">>Find And Replace Text</div>
 						<div class="form-body">
 							<div class="row">
-								<textarea placeholder="Your Text" required style="height: 115px;" name="text"></textarea>
-								 
-								</div>
-                            <div class="row">
-                                <input placeholder="Enter Text To Find" type="text" name="tofind">
+								<textarea placeholder="Your Text" required style="height: 115px;"
+									name="text"></textarea>
+
 							</div>
-                            <div class="row">
-                                <input placeholder="Enter Text To Replace" type="text" name="replace">
+							<div class="row">
+								<input placeholder="Enter Text To Find" type="text" name="tofind">
 							</div>
-                                
-                              
-                                
-								<div class="rule"></div>
-								<div class="form-footer">
-									<button  type="submit" >Replace Now<span class="fa fa-send"
-                  style="color: white;"></span></button>
-									 
-								</div>
-								{% csrf_token %}
+							<div class="row">
+								<input placeholder="Enter Text To Replace" type="text" name="replace">
+							</div>
+
+
+
+							<div class="rule"></div>
+							<div class="form-footer">
+								<button type="submit">Replace Now<span class="fa fa-send"
+										style="color: white;"></span></button>
+
+							</div>
+							{% csrf_token %}
 
 
 					</form>
-                    {% endif %}
+					{% endif %}
 				</div>
 			</div>
 		</div>
 		<br>
 
 	</div>
+</div>
+
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8" style="margin: auto;">
+				{{ page_details.0.main_content |safe }}
+			</div>
+		</div>
 	</div>
+</div>
 
 
+<style>
+	.card-form {
+		width: 100%;
+		border-radius: 10px;
+		background: white;
+		box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+	}
 
-	<style>
+	.card-form .form-title {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 80px;
+		font-size: 20px;
+		font-weight: bold;
+		background: #27ae60;
+		border-radius: 10px 10px 0 0;
+		color: #e8ebed;
+	}
+
+	.card-form .form-body {
+		padding: 10px;
+	}
+
+	.card-form .form-body .row {
+		display: flex;
+		justify-content: space-around;
+		padding: 10px;
+	}
+
+	.card-form .form-body .row input[type=text],
+	input[type=number],
+	textarea,
+	select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		width: 100%;
+		margin: 0 15px;
+		height: 50px;
+		padding: 5px 15px;
+		border-radius: 5px;
+		outline: none;
+		border: none;
+		background: #e8ebed;
+		color: #576366;
+		font-size: 14px;
+	}
+
+	.card-form .rule {
+		height: 2px;
+		background: #e8ebed;
+		margin: 0px 35px;
+	}
+
+	.card-form .form-footer {
+		margin: 0 25px 15px 25px;
+		padding: 15px 10px;
+	}
+
+	.card-form .form-footer button {
+		display: inline-block;
+		height: 40px;
+		border: none;
+		border-radius: 5px;
+		padding: 5px 15px;
+		background: #27ae60;
+		margin-right: 10px;
+		font-size: 17px;
+		color: white;
+		cursor: pointer;
+	}
+
+	.card-form .form-footer span {
+		margin-left: 8px;
+	}
+
+	@media only screen and (min-width: 720px) {
 		.card-form {
-			width: 100%;
-			border-radius: 10px;
-			background: white;
-			box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+			width: 500px;
 		}
-
-		.card-form .form-title {
-			width: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 80px;
-			font-size: 20px;
-			font-weight: bold;
-			background: #27ae60;
-			border-radius: 10px 10px 0 0;
-			color: #e8ebed;
-		}
-
-		.card-form .form-body {
-			padding: 10px;
-		}
-
-		.card-form .form-body .row {
-			display: flex;
-			justify-content: space-around;
-			padding: 10px;
-		}
-
-		.card-form .form-body .row input[type=text],
-		input[type=number],textarea,select {
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none;
-			width: 100%;
-			margin: 0 15px;
-			height: 50px;
-			padding: 5px 15px;
-			border-radius: 5px;
-			outline: none;
-			border: none;
-			background: #e8ebed;
-			color: #576366;
-			font-size: 14px;
-		}
-
-		.card-form .rule {
-			height: 2px;
-			background: #e8ebed;
-			margin: 0px 35px;
-		}
-
-		.card-form .form-footer {
-			margin: 0 25px 15px 25px;
-			padding: 15px 10px;
-		}
-
-		.card-form .form-footer button {
-			display: inline-block;
-			height: 40px;
-			border: none;
-			border-radius: 5px;
-			padding: 5px 15px;
-			background: #27ae60;
-			margin-right: 10px;
-			font-size: 17px;
-			color: white;
-			cursor: pointer;
-		}
-
-		.card-form .form-footer span {
-			margin-left: 8px;
-		}
-
-		@media only screen and (min-width: 720px) {
-			.card-form {
-				width: 500px;
-			}
-		}
-	</style>
- 
+	}
+</style>
 
 
 
@@ -158,4 +155,5 @@
 
 
 
-	{% endblock %}
+
+{% endblock %}

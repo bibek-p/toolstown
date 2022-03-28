@@ -11,7 +11,7 @@ from datetime import datetime
 import img2pdf
 import random
 from PyPDF2 import PdfFileMerger, PdfFileReader
-
+from bomber.models import ToolsDetails
 
 def jeg_to_png(request):
     if request.method == 'POST' and request.FILES['myfile']:
@@ -39,7 +39,9 @@ def jeg_to_png(request):
             return render(request, 'image_converter/jpg-to-png.html', {
                 'error': "You have uploaded invalid image format"
             })
-    return render(request,"image_converter/jpg-to-png.html")
+    page_details=ToolsDetails.objects.filter(toolsname="JPG To PNG or JPEG to PNG")
+    page_details={"page_details":page_details}
+    return render(request,"image_converter/jpg-to-png.html",page_details)
 
 def png_to_jpg(request):
     if request.method == 'POST' and request.FILES['myfile']:
@@ -68,7 +70,9 @@ def png_to_jpg(request):
             return render(request, 'image_converter/png-to-jpg.html', {
                 'error': "You have uploaded invalid image format"
             })
-    return render(request,"image_converter/png-to-jpg.html")
+    page_details=ToolsDetails.objects.filter(toolsname="PNG To JPG")
+    page_details={"page_details":page_details}
+    return render(request,"image_converter/png-to-jpg.html",page_details)
 
 def png_to_jpeg(request):
     if request.method == 'POST' and request.FILES['myfile']:
@@ -97,7 +101,9 @@ def png_to_jpeg(request):
             return render(request, 'image_converter/png-to-jpeg.html', {
                 'error': "You have uploaded invalid image format"
             })
-    return render(request,"image_converter/png-to-jpeg.html")
+    page_details=ToolsDetails.objects.filter(toolsname="PNG To JPEG")
+    page_details={"page_details":page_details}
+    return render(request,"image_converter/png-to-jpeg.html",page_details)
 
 def image_to_pdf(request):
     if request.method == 'POST' and request.FILES['myfile']:
@@ -134,15 +140,17 @@ def image_to_pdf(request):
             return render(request, 'image_converter/image-to-pdf.html', {
                 'error': "You have uploaded invalid image format. Allowed Format Are JPG,JPEG,PNG."
             })
-    return render(request,"image_converter/image-to-pdf.html")
+    page_details=ToolsDetails.objects.filter(toolsname="PNG To JPG")
+    page_details={"page_details":page_details}
+    return render(request,"image_converter/image-to-pdf.html",page_details)
 
 
 def merge_pdf(request):
     if request.method == 'POST':
         mergedObject = PdfFileMerger()
         total_uploaded_files=[]
-        print("==============>",len(request.FILES.getlist("file")))
-        for count, f in enumerate(request.FILES.getlist("file")):
+        print("==============>",len(request.FILES.getlist("files")))
+        for count, f in enumerate(request.FILES.getlist("files")):
             curr_dt = datetime.now()
             timestamp = int(round(curr_dt.timestamp()))
             file_name='media/pdf_'+str(timestamp)+str(random.randint(0,20))+'.pdf'

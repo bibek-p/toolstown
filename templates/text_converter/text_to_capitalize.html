@@ -1,18 +1,4 @@
 {% extends "../layout.html" %}
-
-{% block meta %}
-<title>Change your text to capitalization - Online Free !</title>
-<meta name="description"
-	content="Change the capitalization of text to lowercase, UPPERCASE, Capitalize First Word, or Sentence case in your documents." />
-<meta name="keywords"
-	content="change text to capitalization,text to speech capitalization,text capitalization flutter,text capitalization,text capitalization tool,text capitalization css,text capitalization randomizer,text capitalization shortcut,android voice to text capitalization,android speech to text capitalization,text capitalization converter,how to change capitalization text in word,text document capitalization,text format capitalize,text capitalization format,text field capitalization swift,text for capitalization,google voice to text capitalization,text capitalization html,how to text capitalization,text capitalization in css,text capitalization in android,text capitalization ios,how to change text capitalization in word,iphone voice to text capitalization,text capitalization keyboard,text lowercase capitalization,text capitalization macbook,text message capitalization,mentor text to teach capitalization,text capitalization online,text style capitalization,text capitalization ux,text capitalization uppercase,voice to text capitalization,word voice to text capitalization,text capitalization word" />
-<meta name="robots" content="index, follow" />
-<meta name="language" content="English">
-<meta name="revisit-after" content="1 days">
-<meta name="author" content="Tools Band">
-{% endblock meta %}
-
-
 {% block body%}
 <div class="section">
 	<div class="container">
@@ -20,131 +6,142 @@
 			<div class="col-sm-6" style="margin: auto;">
 				<div class="card-form">
 
-                     {% if output %}
-								<!-- output -->
-                                <div class="form-title">Your Converted Text</div>
-                                <p style="margin-top: 10px;padding: 10px;text-align: justify;margin-bottom: 20px;">{{ output }}</p>
+					{% if output %}
+					<!-- output -->
+					<div class="form-title">Your Converted Text</div>
+					<p style="margin-top: 10px;padding: 10px;text-align: justify;margin-bottom: 20px;">{{ output }}</p>
 
-                                <div class="rule"></div>
-								<div class="form-footer">
-									<button  type="button" onclick="location.reload();">Generate New</button>
-									 
-								</div>
-                    {% else %}
+					<div class="rule"></div>
+					<div class="form-footer">
+						<button type="button" onclick="location.reload();">Generate New</button>
+
+					</div>
+					{% else %}
 					<form class="signup" action="" method="post">
 						<div class="form-title">>Convert Text To Capitalize Text</div>
 						<div class="form-body">
 							<div class="row">
-								<textarea placeholder="Your Text" required style="height: 115px;" name="text"></textarea>
-								 
-								</div>
-                                
-                              
-                                
-								<div class="rule"></div>
-								<div class="form-footer">
-									<button  type="submit" >Convert Now<span class="fa fa-send"
-                  style="color: white;"></span></button>
-									 
-								</div>
-								{% csrf_token %}
+								<textarea placeholder="Your Text" required style="height: 115px;"
+									name="text"></textarea>
+
+							</div>
+
+
+
+							<div class="rule"></div>
+							<div class="form-footer">
+								<button type="submit">Convert Now<span class="fa fa-send"
+										style="color: white;"></span></button>
+
+							</div>
+							{% csrf_token %}
 
 
 					</form>
-                    {% endif %}
+					{% endif %}
 				</div>
 			</div>
 		</div>
 		<br>
 
 	</div>
+</div>
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8" style="margin: auto;">
+				{{ page_details.0.main_content |safe }}
+			</div>
+		</div>
 	</div>
+</div>
 
 
 
-	<style>
+<style>
+	.card-form {
+		width: 100%;
+		border-radius: 10px;
+		background: white;
+		box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+	}
+
+	.card-form .form-title {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 80px;
+		font-size: 20px;
+		font-weight: bold;
+		background: #27ae60;
+		border-radius: 10px 10px 0 0;
+		color: #e8ebed;
+	}
+
+	.card-form .form-body {
+		padding: 10px;
+	}
+
+	.card-form .form-body .row {
+		display: flex;
+		justify-content: space-around;
+		padding: 10px;
+	}
+
+	.card-form .form-body .row input[type=text],
+	input[type=number],
+	textarea,
+	select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		width: 100%;
+		margin: 0 15px;
+		height: 50px;
+		padding: 5px 15px;
+		border-radius: 5px;
+		outline: none;
+		border: none;
+		background: #e8ebed;
+		color: #576366;
+		font-size: 14px;
+	}
+
+	.card-form .rule {
+		height: 2px;
+		background: #e8ebed;
+		margin: 0px 35px;
+	}
+
+	.card-form .form-footer {
+		margin: 0 25px 15px 25px;
+		padding: 15px 10px;
+	}
+
+	.card-form .form-footer button {
+		display: inline-block;
+		height: 40px;
+		border: none;
+		border-radius: 5px;
+		padding: 5px 15px;
+		background: #27ae60;
+		margin-right: 10px;
+		font-size: 17px;
+		color: white;
+		cursor: pointer;
+	}
+
+	.card-form .form-footer span {
+		margin-left: 8px;
+	}
+
+	@media only screen and (min-width: 720px) {
 		.card-form {
-			width: 100%;
-			border-radius: 10px;
-			background: white;
-			box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+			width: 500px;
 		}
-
-		.card-form .form-title {
-			width: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 80px;
-			font-size: 20px;
-			font-weight: bold;
-			background: #27ae60;
-			border-radius: 10px 10px 0 0;
-			color: #e8ebed;
-		}
-
-		.card-form .form-body {
-			padding: 10px;
-		}
-
-		.card-form .form-body .row {
-			display: flex;
-			justify-content: space-around;
-			padding: 10px;
-		}
-
-		.card-form .form-body .row input[type=text],
-		input[type=number],textarea,select {
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none;
-			width: 100%;
-			margin: 0 15px;
-			height: 50px;
-			padding: 5px 15px;
-			border-radius: 5px;
-			outline: none;
-			border: none;
-			background: #e8ebed;
-			color: #576366;
-			font-size: 14px;
-		}
-
-		.card-form .rule {
-			height: 2px;
-			background: #e8ebed;
-			margin: 0px 35px;
-		}
-
-		.card-form .form-footer {
-			margin: 0 25px 15px 25px;
-			padding: 15px 10px;
-		}
-
-		.card-form .form-footer button {
-			display: inline-block;
-			height: 40px;
-			border: none;
-			border-radius: 5px;
-			padding: 5px 15px;
-			background: #27ae60;
-			margin-right: 10px;
-			font-size: 17px;
-			color: white;
-			cursor: pointer;
-		}
-
-		.card-form .form-footer span {
-			margin-left: 8px;
-		}
-
-		@media only screen and (min-width: 720px) {
-			.card-form {
-				width: 500px;
-			}
-		}
-	</style>
- 
+	}
+</style>
 
 
 
@@ -152,4 +149,5 @@
 
 
 
-	{% endblock %}
+
+{% endblock %}

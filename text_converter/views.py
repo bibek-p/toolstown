@@ -8,90 +8,97 @@ import hashlib
 import base64
 from datetime import datetime
 import os
+from bomber.models import ToolsDetails
 
 
 def text_to_uppercase(request):
+    page_details=ToolsDetails.objects.filter(toolsname="Text To Upper Case")
+    page_details={"page_details":page_details}
     if request.method == 'POST':
         text=request.POST["text"]
         result = text.upper()
-        return render(request, 'text_converter/text_to_uppercase.html', {
-                'output': result
-            })
-    return render(request,"text_converter/text_to_uppercase.html")
+        page_details["output"]=result
+        return render(request, 'text_converter/text_to_uppercase.html', page_details)
+    return render(request,"text_converter/text_to_uppercase.html",page_details)
 
 def text_to_lowercase(request):
+    page_details=ToolsDetails.objects.filter(toolsname="Text Uppercase to Lowercase")
+    page_details={"page_details":page_details}
     if request.method == 'POST':
         text=request.POST["text"]
         result = text.lower()
-        return render(request, 'text_converter/text_to_lowercase.html', {
-                'output': result
-            })
-    return render(request,"text_converter/text_to_lowercase.html")
+        page_details["output"]=result
+        return render(request, 'text_converter/text_to_lowercase.html', page_details)
+    return render(request,"text_converter/text_to_lowercase.html",page_details)
 
 
 def text_to_capitalize(request):
+    page_details=ToolsDetails.objects.filter(toolsname="Text to Capitalization")
+    page_details={"page_details":page_details}
     if request.method == 'POST':
         text=request.POST["text"]
         result = text.capitalize()
-        return render(request, 'text_converter/text_to_capitalize.html', {
-                'output': result
-            })
-    return render(request,"text_converter/text_to_capitalize.html")
+        page_details["output"]=result
+        return render(request, 'text_converter/text_to_capitalize.html', page_details)
+    return render(request,"text_converter/text_to_capitalize.html",page_details)
 
 def word_count(request):
+    page_details=ToolsDetails.objects.filter(toolsname="Word Count")
+    page_details={"page_details":page_details}
     if request.method == 'POST':
         text=request.POST["text"]
         word_list = text.split()
         number_of_words = len(word_list)
         result= "Total Number Of Word In Your Text Is : "+str(number_of_words)
-        return render(request, 'text_converter/word_count.html', {
-                'output': result
-            })
-    return render(request,"text_converter/word_count.html")
+        page_details["output"]= result
+    return render(request,"text_converter/word_count.html",page_details)
 
 def remove_space(request):
+    page_details=ToolsDetails.objects.filter(toolsname="Remove Spaces from Text")
+    page_details={"page_details":page_details}
     if request.method == 'POST':
         text=request.POST["text"]
         result = text.replace(" ",'')
-        return render(request, 'text_converter/remove_space.html', {
-                'output': result
-            })
-    return render(request,"text_converter/remove_space.html")
+        page_details["output"]= result
+    return render(request,"text_converter/remove_space.html",page_details)
 
 def replace_text(request):
+    page_details=ToolsDetails.objects.filter(toolsname="Text Replace")
+    page_details={"page_details":page_details}
     if request.method == 'POST':
         text=request.POST["text"]
         tofind=request.POST["tofind"]
         replace=request.POST["replace"]
         result = text.replace(tofind,replace)
-        return render(request, 'text_converter/replace_text.html', {
-                'output': result
-            })
-    return render(request,"text_converter/replace_text.html")
+        page_details["output"]= result
+    return render(request,"text_converter/replace_text.html",page_details)
 
 
 def repeat_text(request):
+    page_details=ToolsDetails.objects.filter(toolsname="Text Repeater")
+    page_details={"page_details":page_details}
     if request.method == 'POST':
         text=request.POST["text"]
         nooftime=request.POST["nooftime"]
         result=""
         for i in range(int(nooftime)):
             result=result+text
-        return render(request, 'text_converter/repeat_text.html', {
-                'output': result
-            })
-    return render(request,"text_converter/repeat_text.html")
+        
+        page_details["output"]= result
+    return render(request,"text_converter/repeat_text.html",page_details)
 
 
 def text_reverse(request):
+    page_details=ToolsDetails.objects.filter(toolsname="Reverse Text")
+    page_details={"page_details":page_details}
     if request.method == 'POST':
         text=request.POST["text"]
-        return render(request, 'text_converter/text_reverse.html', {
-                'output': text[::-1]
-            })
-    return render(request,"text_converter/text_reverse.html")
+        page_details["output"]=text[::-1]
+    return render(request,"text_converter/text_reverse.html",page_details)
 
 def text_file_to_json(request):
+    page_details=ToolsDetails.objects.filter(toolsname="Text File To JSON Object")
+    page_details={"page_details":page_details}
     if request.method == 'POST':
         seperator=request.POST["seperator"]
         source_media="media/"
@@ -131,23 +138,21 @@ def text_file_to_json(request):
             os.remove(source_media+filename)
             finals=str(mydict)
             finals=finals.replace("'",'"')
-            return render(request, 'text_converter/text-to-json.html', {
-                'output': finals
-            })
+            page_details["output"]=finals
         else:
-            return render(request, 'text_converter/text-to-json.html', {
-                'error': "You have uploaded invalid text file format"
-            })
-    return render(request,"text_converter/text-to-json.html")
+            page_details["error"]="You have uploaded invalid text file format"
+            
+    return render(request,"text_converter/text-to-json.html",page_details)
 
 def json_to_php_array(request):
+    page_details=ToolsDetails.objects.filter(toolsname="JSON Object to PHP Array")
+    page_details={"page_details":page_details}
     if request.method == 'POST':
         text=request.POST["text"]
         url = "https://jsontophp.com/"
         payload={'jayson': text}
         headers = {}
         response = requests.request("POST", url, headers=headers, data=payload)
-        return render(request, 'text_converter/json-to-php-array.html', {
-                'output': response.text
-            })
-    return render(request,"text_converter/json-to-php-array.html")
+        page_details["output"]=response.text
+
+    return render(request,"text_converter/json-to-php-array.html",page_details)

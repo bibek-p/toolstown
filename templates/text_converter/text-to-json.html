@@ -1,19 +1,4 @@
 {% extends "../layout.html" %}
-
-{% block meta %}
-<title>Text File To JSON Object Converter - Online Free</title>
-<meta name="description"
-	content="Easy to convert your text file to json objects.Instance conversion of text file to json object 100% free and instant result by this tools. Effortless tools to convert text file to json objects. " />
-<meta name="keywords"
-	content="remove spaces from text file,remove spaces from text in excel,remove spaces from text file python,remove spaces from text file online,remove spaces from text file using powershell,remove spaces from text python,remove spaces from text javascript,remove spaces from text string in excel,remove spaces from text online,remove spaces from a text,remove spaces from a text file,remove spaces from a text string in excel,remove spaces from a text string,remove all spaces from a text file,remove spaces after text in excel,remove spaces after text,remove spaces after text notepad++,remove spaces from text file notepad++,remove spaces from text bash,remove spaces from before text in excel,remove whitespace from text box,remove spaces from text file batch,excel vba remove spaces from text box,remove spaces between text in excel,remove spaces between text,remove spaces between text in word,remove spaces from text c#,remove whitespace from text css,remove whitespace from text file c#,remove spaces in text cell excel,cmd remove spaces from text file,remove spaces between characters text,remove spaces and nonprinting characters from text,vba code to remove spaces from text,c program to remove spaces from a string,c program to remove whitespace from string,c program to remove blank spaces from a string,remove spaces from text document,remove double spaces from text,dax remove spaces from text,how do i remove spaces from text in excel,power bi remove double spaces from text,how do i remove spaces from justified text in powerpoint,how do i remove spaces from a text box in word,remove spaces from text excel,remove spaces from text editor,trim spaces from text excel,remove all spaces from text excel,remove all spaces from text excel formula,remove spaces from text in excel vba,remove spaces before text excel,remove extra spaces from text,remove spaces from text file linux,remove spaces from text file powershell,remove spaces from text google sheets,how to remove spaces from text in excel,how to remove spaces from text in javascript,how to remove spaces from text in python,how to remove spaces from text,how to remove spaces from text file,how to remove spaces from text in word,how to remove spaces from text in notepad++,how to remove spaces from text in oracle,remove spaces from text in python,remove spaces from text in javascript,remove spaces from text in sql server,remove spaces from text in postgresql,remove spaces from text in r,remove spaces from text in word,remove spaces from text jquery,remove spaces from text java,remove spaces from justified text,remove whitespace from text java,java remove spaces from text file,javascript remove multiple spaces from text,js remove spaces from text,remove extra spaces in text online,remove spaces from strings,remove spaces from text linux,libreoffice remove spaces from text,remove leading spaces from text in excel,remove leading spaces from text file batch,powershell remove leading spaces from text file,remove spaces and line breaks from text,remove leading and trailing spaces from text in excel,remove leading and trailing spaces from text,remove multiple spaces from text,matlab remove spaces from text file,ms excel remove spaces from text string,ms access remove spaces from text,remove spaces from middle of text in excel,power bi m remove spaces from text,remove spaces from text notepad,remove spaces between text notepad,remove whitespace text node,remove spaces and nonprinting characters from text in excel,remove whitespace from text online,remove extra spaces from text online,remove spaces from beginning of text in excel,remove whitespace only text node,oracle sql remove spaces from text,to remove spaces in python,remove spaces from text power query,remove spaces from text php,remove spaces from text powershell,remove whitespace from text python,p tag remove space,excel remove spaces from right of text,ssrs report export to pdf remove spaces from text,remove spaces from text sql,remove spaces from text string,remove spaces from text in sas,excel formula remove spaces from text string,remove spaces sublime text 3,remove spaces from start of text in excel,remove space using sed,remove trailing spaces from text file batch,remove trailing spaces from text in excel,remove tab spaces from text file,remove trailing spaces from text,excel remove spaces text to columns,t sql remove spaces from text,how to remove spaces from a text file in unix,remove spaces from text vba,vbscript remove spaces from text file,excel vba remove all spaces from text,excel vba remove spaces from end of text,remove spaces from text word,remove whitespace from text file windows,remove spaces within text excel,remove whitespace from text,windows remove spaces from text file,remove spaces in justified text word,excel remove whitespace from text,xpath remove spaces from text,xslt remove spaces from text,remove space from text,remove space from text online,online remove spaces from text,remove spaces from a string,remove spaces from code,excel 2016 remove spaces from text,remove spaces from html,remove extra space in textarea" />
-<meta name="robots" content="index, follow" />
-<meta name="language" content="English">
-<meta name="revisit-after" content="1 days">
-<meta name="author" content="Tools Band">
-{% endblock meta %}
-
-
-
 {% block body%}
 <div class="section">
 	<div class="container">
@@ -21,134 +6,146 @@
 			<div class="col-sm-6" style="margin: auto;">
 				<div class="card-form">
 
-                     {% if output %}
-								<!-- output -->
-                                <div class="form-title">Your Converted JSON Object</div>
-                                <!-- <p style="margin-top: 10px;overflow-wrap: break-word;padding: 10px;text-align: justify;margin-bottom: 20px;">{{ output }}</p> -->
-                                 <textarea oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' style="width: 94%;height: 150px;margin-top: 20px;">{{ output }}</textarea>
+					{% if output %}
+					<!-- output -->
+					<div class="form-title">Your Converted JSON Object</div>
+					<!-- <p style="margin-top: 10px;overflow-wrap: break-word;padding: 10px;text-align: justify;margin-bottom: 20px;">{{ output }}</p> -->
+					<textarea oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+						style="width: 94%;height: 150px;margin-top: 20px;">{{ output }}</textarea>
 
-                                <div class="rule"></div>
-								<div class="form-footer">
-									<button  type="button" onclick="location.reload();">Generate New</button>
-									 
-								</div>
-                    {% else %}
+					<div class="rule"></div>
+					<div class="form-footer">
+						<button type="button" onclick="location.reload();">Generate New</button>
+
+					</div>
+					{% else %}
 					<form class="signup" action="" method="post" enctype="multipart/form-data">
 						<div class="form-title">>Convert Text File To JSON Object</div>
 						<div class="form-body">
 							<div class="row">
 								<input type="file" name="text_file" required>
-								</div>
-                            <div class="row">
-								<input type="text" name="seperator" placeholder="Enter The Key Indentification Symbol" required>
-								</div>
-                                
-                              
-                                
-								<div class="rule"></div>
-								<div class="form-footer">
-									<button  type="submit" >Convert Now<span class="fa fa-send"
-                  style="color: white;"></span></button>
-									 
-								</div>
-								{% csrf_token %}
+							</div>
+							<div class="row">
+								<input type="text" name="seperator" placeholder="Enter The Key Indentification Symbol"
+									required>
+							</div>
+
+
+
+							<div class="rule"></div>
+							<div class="form-footer">
+								<button type="submit">Convert Now<span class="fa fa-send"
+										style="color: white;"></span></button>
+
+							</div>
+							{% csrf_token %}
 
 
 					</form>
-                    {% endif %}
+					{% endif %}
 				</div>
 			</div>
 		</div>
 		<br>
 
 	</div>
+</div>
+
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8" style="margin: auto;">
+				{{ page_details.0.main_content |safe }}
+			</div>
+		</div>
 	</div>
+</div>
 
 
+<style>
+	.card-form {
+		width: 100%;
+		border-radius: 10px;
+		background: white;
+		box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+	}
 
-	<style>
+	.card-form .form-title {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 80px;
+		font-size: 20px;
+		font-weight: bold;
+		background: #27ae60;
+		border-radius: 10px 10px 0 0;
+		color: #e8ebed;
+	}
+
+	.card-form .form-body {
+		padding: 10px;
+	}
+
+	.card-form .form-body .row {
+		display: flex;
+		justify-content: space-around;
+		padding: 10px;
+	}
+
+	.card-form .form-body .row input[type=text],
+	input[type=number],
+	textarea,
+	select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		width: 100%;
+		margin: 0 15px;
+		height: 50px;
+		padding: 5px 15px;
+		border-radius: 5px;
+		outline: none;
+		border: none;
+		background: #e8ebed;
+		color: #576366;
+		font-size: 14px;
+	}
+
+	.card-form .rule {
+		height: 2px;
+		background: #e8ebed;
+		margin: 0px 35px;
+	}
+
+	.card-form .form-footer {
+		margin: 0 25px 15px 25px;
+		padding: 15px 10px;
+	}
+
+	.card-form .form-footer button {
+		display: inline-block;
+		height: 40px;
+		border: none;
+		border-radius: 5px;
+		padding: 5px 15px;
+		background: #27ae60;
+		margin-right: 10px;
+		font-size: 17px;
+		color: white;
+		cursor: pointer;
+	}
+
+	.card-form .form-footer span {
+		margin-left: 8px;
+	}
+
+	@media only screen and (min-width: 720px) {
 		.card-form {
-			width: 100%;
-			border-radius: 10px;
-			background: white;
-			box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+			width: 500px;
 		}
-
-		.card-form .form-title {
-			width: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 80px;
-			font-size: 20px;
-			font-weight: bold;
-			background: #27ae60;
-			border-radius: 10px 10px 0 0;
-			color: #e8ebed;
-		}
-
-		.card-form .form-body {
-			padding: 10px;
-		}
-
-		.card-form .form-body .row {
-			display: flex;
-			justify-content: space-around;
-			padding: 10px;
-		}
-
-		.card-form .form-body .row input[type=text],
-		input[type=number],textarea,select {
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none;
-			width: 100%;
-			margin: 0 15px;
-			height: 50px;
-			padding: 5px 15px;
-			border-radius: 5px;
-			outline: none;
-			border: none;
-			background: #e8ebed;
-			color: #576366;
-			font-size: 14px;
-		}
-
-		.card-form .rule {
-			height: 2px;
-			background: #e8ebed;
-			margin: 0px 35px;
-		}
-
-		.card-form .form-footer {
-			margin: 0 25px 15px 25px;
-			padding: 15px 10px;
-		}
-
-		.card-form .form-footer button {
-			display: inline-block;
-			height: 40px;
-			border: none;
-			border-radius: 5px;
-			padding: 5px 15px;
-			background: #27ae60;
-			margin-right: 10px;
-			font-size: 17px;
-			color: white;
-			cursor: pointer;
-		}
-
-		.card-form .form-footer span {
-			margin-left: 8px;
-		}
-
-		@media only screen and (min-width: 720px) {
-			.card-form {
-				width: 500px;
-			}
-		}
-	</style>
- 
+	}
+</style>
 
 
 
@@ -156,4 +153,5 @@
 
 
 
-	{% endblock %}
+
+{% endblock %}

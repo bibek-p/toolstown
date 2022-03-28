@@ -1,16 +1,5 @@
 {% extends "../layout.html" %}
 
-{% block meta %}
-<title>JPEG to PNG or JPG to PNG Converter (Online &amp; Free) — Tools Band</title>
-<meta name="description"
-	content="Best way to convert your JPEG to PNG or JPG to PNG file in seconds. 100% free, secure and easy to use! Tools Band — advanced online tool that solving any problems with any files." />
-<meta name="keywords"
-	content="JPEG to PNG or JPG to PNG converter free,jpg to png converter,jpg to png converter small pdf,jpg to png converter free download,jpg to png converter i love,jpg to png converter software,jpg to png converter portable,jpg to png converter with transparent background,JPEG to PNG or JPG to PNG converter online,jpg to png converter online,jpg to png converter app,jpg to png converter apk,jpg to png converter adobe,jpg to png converter app for android,jpg to png converter android,jpg to png converter app for pc,JPEG/JPG converter-png/gif to jpg apk,JPEG/JPG converter-png/gif to JPEG/JPG apk,jpg to png converter free,jpg to png transparent converter,jpg to png converter i love pdf,jpg to png converter ubuntu,jpg to png converter bulk,jpg to png bulk converter,jpg to png transparent background converter,jpg to png converter remove background,best jpg to png converter,bulk jpg to png converter free download,jpg to png converter telegram bot,png to jpg convert online,jpg to png converter source code,jpg to png converter chip,convert jpg into png format,converting jpg into png,convert image into png format,convert jpg into png image,jpg to png converter download,jpg to png converter download for pc,png to jpg converter download,png to jpg converter software free download,download photo converter png to jpg,jpg image convert into png,jpg to png converter ezgif,jpg to png converter exe,jpg to png converter free download for pc,jpg to png converter free download full version,jpg to png converter fedora,jpg to transparent png converter free,convert JPEG to PNG or JPG to PNG format,jpg converter-png/gif to jpg,google jpg to png converter,convertir jpg en png online gratis,jpg to png converter online remove background,jpg to png converter hd,online jpg to png converter high quality,jpg to png converter image,jpg to png converter iphone,image converter png to jpg,jpg to png - online png tools,JPEG/JPG to jpg png converter,jpg to png converter 50 kb,jpg to png converter 40 kb,jpg convert into png,jpg file convert into png,jpg to png converter lunapic,jpg to png converter linux,jpg to png logo converter,jpg to png converter mod apk,jpg to png converter mac,convert png to jpg mac,photo jpg to png convert,jpg convert to png format,jpg to png converter offline,jpg to png converter online i love pdf,online image converter png to jpg,png to jpg converter open source,online jpg converter to png,online JPEG to PNG or JPG to PNG converter,jpg to png converter python,jpg to png converter program,jpg to png converter pc,jpg to png converter php,jpg to png converter pro apk,how to convert jpg to png in photoshop,convert jpg file into png format,png image convert to jpg file,convert JPEG/JPG image into png,jpg to png converter resize,jpg to png converter script,jpg to png converter small size,jpg to png converter software download,jpg to png converter software online,convert jpg image into png,jpg to png converter transparent background,jpg to png converter tool,jpg converter to png online,jpg to png free converter,JPEG/JPG vs png converter,jpg to png converter without changing size,jpg to png converter without background,jpg to png converter white background,png to jpg converter without changing size,how to convert jpg image into png format,png to JPEG/JPG xr converter,how to convert image into png format,jpg png convert,jpg to png converter windows 10,jpg to png converter 200kb,convert jpg to png 2mb,png to JPEG/JPG 2000 converter,jpg to png 24 converter,how to convert image jpg to png,how to convert photo jpg to png,jpg image convert in png,jpg to png image converter free download,jpg change to png" />
-<meta name="robots" content="index, follow" />
-<meta name="language" content="English">
-<meta name="revisit-after" content="1 days">
-<meta name="author" content="Tools Band">
-{% endblock meta %}
 
 
 {% block body%}
@@ -30,17 +19,19 @@
 												<div><b>Download Your Converted Image</b></div>
 											</div>
 											<div class="box-body">
-												<img width="200" src="{{ uploaded_file_url }}"></div>
+												<img width="200" src="{{ uploaded_file_url }}">
 											</div>
-											<br>
-											<br>
-											<a href="{{ uploaded_file_url }}" download><button type="button" class="btn btn-danger btn-xs remove-preview">
-                                      Download
-                      </button></a>
 										</div>
+										<br>
+										<br>
+										<a href="{{ uploaded_file_url }}" download><button type="button"
+												class="btn btn-danger btn-xs remove-preview">
+												Download
+											</button></a>
 									</div>
 								</div>
 							</div>
+						</div>
 					</section>
 					{% else %}
 
@@ -65,8 +56,9 @@
 													<div class="box-header with-border">
 														<div><b>Preview</b></div>
 														<div class="box-tools pull-right">
-															<button onclick="closepreview()" type="button" class="btn btn-danger btn-xs remove-preview">
-															<i class="fa fa-times"></i>
+															<button onclick="closepreview()" type="button"
+																class="btn btn-danger btn-xs remove-preview">
+																<i class="fa fa-times"></i>
 															</button>
 														</div>
 													</div>
@@ -79,17 +71,18 @@
 													<p>Choose an image file or drag it here.</p>
 												</div>
 												<input type="file" name="myfile" class="dropzone">
-                                </div>
 											</div>
 										</div>
 									</div>
+								</div>
 
-									<div class="row">
-										<div class="col-md-12">
-											<button type="submit" id="convertbtn" class="btn btn-primary pull-right">Convert to PNG</button>
-										</div>
+								<div class="row">
+									<div class="col-md-12">
+										<button type="submit" id="convertbtn" class="btn btn-primary pull-right">Convert
+											to PNG</button>
 									</div>
 								</div>
+							</div>
 						</form>
 					</section>
 					{% endif %}
@@ -108,7 +101,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-8" style="margin: auto;">
-				<p>Effectively convert your pictures to a JPG To PNG or JPEG to PNG design in short order. JPG To PNG or JPEG to PNG documents offer abilities like straightforwardness, blurred edges, and greater pressure. Convert your pictures rapidly with Toolsband so you can have more freedoms to distribute them for your crowds to enjoy.Converting your picture to use as a component of a greater venture? Release your innovativeness with the photograph altering capacities and configuration devices from Creative Cloud Express. Add symbols, typography, movement, and GIFs. Upgrade your picture with channels and explicit altering changes. Then, at that point, resize your picture to share across any computerized or printed stage.</p>
+				{{ page_details.0.main_content |safe }}
 			</div>
 		</div>
 	</div>
@@ -185,63 +178,63 @@
 	}
 </style>
 <script>
-	function closepreview(){
-        document.getElementById("imgpreview").style.display="none";
-        document.getElementById("dropzone").style.display="block";
-        document.getElementById("convertbtn").style.display="none";
-    }
+	function closepreview() {
+		document.getElementById("imgpreview").style.display = "none";
+		document.getElementById("dropzone").style.display = "block";
+		document.getElementById("convertbtn").style.display = "none";
+	}
 
-    function readFile(input) {
-        document.getElementById("imgpreview").style.display="block";
-        document.getElementById("convertbtn").style.display="block";
-        document.getElementById("dropzone").style.display="none";
-        document.getElementById("error_mess").style.display="none";
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+	function readFile(input) {
+		document.getElementById("imgpreview").style.display = "block";
+		document.getElementById("convertbtn").style.display = "block";
+		document.getElementById("dropzone").style.display = "none";
+		document.getElementById("error_mess").style.display = "none";
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
 
-            reader.onload = function(e) {
-            var htmlPreview =
-                '<img width="200" src="' + e.target.result + '" />' +
-                '<p>' + input.files[0].name + '</p>';
-            var wrapperZone = $(input).parent();
-            var previewZone = $(input).parent().parent().find('.preview-zone');
-            var boxZone = $(input).parent().parent().find('.preview-zone').find('.fbox').find('.box-body');
+			reader.onload = function (e) {
+				var htmlPreview =
+					'<img width="200" src="' + e.target.result + '" />' +
+					'<p>' + input.files[0].name + '</p>';
+				var wrapperZone = $(input).parent();
+				var previewZone = $(input).parent().parent().find('.preview-zone');
+				var boxZone = $(input).parent().parent().find('.preview-zone').find('.fbox').find('.box-body');
 
-            wrapperZone.removeClass('dragover');
-            previewZone.removeClass('hidden');
-            boxZone.empty();
-            boxZone.append(htmlPreview);
-            };
+				wrapperZone.removeClass('dragover');
+				previewZone.removeClass('hidden');
+				boxZone.empty();
+				boxZone.append(htmlPreview);
+			};
 
-            reader.readAsDataURL(input.files[0]);
-        }
-}
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
 
-function reset(e) {
-  e.wrap('<form>').closest('form').get(0).reset();
-  e.unwrap();
-}
+	function reset(e) {
+		e.wrap('<form>').closest('form').get(0).reset();
+		e.unwrap();
+	}
 
-$(".dropzone").change(function() {
-  readFile(this);
-});
+	$(".dropzone").change(function () {
+		readFile(this);
+	});
 
-$('.dropzone-wrapper').on('dragover', function(e) {
-  e.preventDefault();
-  e.stopPropagation();
-  $(this).addClass('dragover');
-});
+	$('.dropzone-wrapper').on('dragover', function (e) {
+		e.preventDefault();
+		e.stopPropagation();
+		$(this).addClass('dragover');
+	});
 
-$('.dropzone-wrapper').on('dragleave', function(e) {
-  e.preventDefault();
-  e.stopPropagation();
-  $(this).removeClass('dragover');
-});
+	$('.dropzone-wrapper').on('dragleave', function (e) {
+		e.preventDefault();
+		e.stopPropagation();
+		$(this).removeClass('dragover');
+	});
 
 
-if ( window.history.replaceState ) {
-  window.history.replaceState( null, null, window.location.href );
-}
+	if (window.history.replaceState) {
+		window.history.replaceState(null, null, window.location.href);
+	}
 
 </script>
 {% endblock %}

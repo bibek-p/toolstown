@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bomber',
+    'django_summernote'
 ]
 
 MIDDLEWARE = [
@@ -76,10 +78,14 @@ WSGI_APPLICATION = 'mainsite.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': {  
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': 'toolsban_main_db',  
+        'USER':'toolsban_bibek',  
+        'PASSWORD':'MUmT3+f$%)7+',  
+        'HOST':'103.93.16.40',  
+        'PORT':'3306'  
+    }  
 }
 
 
@@ -125,3 +131,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS=(
     os.path.join(BASE_DIR,'assets'),
 )
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+

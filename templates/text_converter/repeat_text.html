@@ -1,16 +1,6 @@
 {% extends "../layout.html" %}
 
-{% block meta %}
-<title>Text Repeater Online Tools - Repeat Your Text Multiple Times.</title>
-<meta name="description"
-	content="Text Repeater - By using this website you can repeat text multiple times.Text Repeator ueses for avoid typing same thing multiple times" />
-<meta name="keywords"
-	content="text repeater online,text repeater app,text repeater mod apk,text repeater generator,text repeater pro apk,text repeater copy and paste,text repeater apk,text repeater for pc,text repeater apk pro,text repeater after effects,text repeater app iphone,best text repeater app,repeater textbox,text repeater one by one,browserling text repeater,baixar text repeater,repeater button text,text repeater com,repeater text change,wrap text in repeater control,text repeater dotkom,text repeater download,text repeater download for pc,text repeater descargar,text repeater for discord,text repeater pro apk download,download text repeater uptodown,text repeater ne demek,text repeater for whatsapp,text repeater for whatsapp apk,text repeater for instagram,text repeater for iphone,text repeater pro for instagram,acf text repeater field,text repeater generator with number,google text repeater,text ripiter.com,text repeater in after effects,text repeater iphone,textbox inside repeater,text boxes in repeater,textarea in repeater,i love you text repeater,javascript text repeater,text repeater keyboard,text repeater nasıl kullanılır,text line repeater,text repeater mod,text repeater mac,text message repeater,text message repeater app,text repeater pro mod apk,text repeater with number,repeater on text after effects,axure set text in repeater,text repeater pinetools,text repeater pc,text repeater apk pure,تحميل برنامج text repeater pro,text repeat,text repeater spam,text string repeater,text repeater for snapchat,text to speech repeater,text repeater tool,text repeater telegram,text repeater 100 times,telecharger text repeater,text repeater unlimited,text repeater uptodown,text repeater voice,text repeater whatsapp,text repeater with design,text repeater windows,www.text repeater.com,text repeater 1000 times,text repeater 1000" />
-<meta name="robots" content="index, follow" />
-<meta name="language" content="English">
-<meta name="revisit-after" content="1 days">
-<meta name="author" content="Tools Band">
-{% endblock meta %}
+
 
 {% block body%}
 <div class="section">
@@ -19,134 +9,146 @@
 			<div class="col-sm-6" style="margin: auto;">
 				<div class="card-form">
 
-                     {% if output %}
-								<!-- output -->
-                                <div class="form-title">Your Output Text</div>
-                                <p style="margin-top: 10px;padding: 10px;text-align: justify;margin-bottom: 20px;">{{ output }}</p>
+					{% if output %}
+					<!-- output -->
+					<div class="form-title">Your Output Text</div>
+					<p style="margin-top: 10px;padding: 10px;text-align: justify;margin-bottom: 20px;">{{ output }}</p>
 
-                                <div class="rule"></div>
-								<div class="form-footer">
-									<button  type="button" onclick="location.reload();">Generate New</button>
-									 
-								</div>
-                    {% else %}
+					<div class="rule"></div>
+					<div class="form-footer">
+						<button type="button" onclick="location.reload();">Generate New</button>
+
+					</div>
+					{% else %}
 					<form class="signup" action="" method="post">
 						<div class="form-title">>Repeat Text Or Text Repeator</div>
 						<div class="form-body">
 							<div class="row">
-								<textarea placeholder="Your Text" required style="height: 115px;" name="text"></textarea>
-								 
-								</div>
-                            <div class="row">
-                                <input placeholder="Enter No of time to repeat" type="text" name="nooftime">
+								<textarea placeholder="Your Text" required style="height: 115px;"
+									name="text"></textarea>
+
 							</div>
-                            
-                              
-                                
-								<div class="rule"></div>
-								<div class="form-footer">
-									<button  type="submit" >Generate Now<span class="fa fa-send"
-                  style="color: white;"></span></button>
-									 
-								</div>
-								{% csrf_token %}
+							<div class="row">
+								<input placeholder="Enter No of time to repeat" type="text" name="nooftime">
+							</div>
+
+
+
+							<div class="rule"></div>
+							<div class="form-footer">
+								<button type="submit">Generate Now<span class="fa fa-send"
+										style="color: white;"></span></button>
+
+							</div>
+							{% csrf_token %}
 
 
 					</form>
-                    {% endif %}
+					{% endif %}
 				</div>
 			</div>
 		</div>
 		<br>
 
 	</div>
+</div>
+
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8" style="margin: auto;">
+				{{ page_details.0.main_content |safe }}
+			</div>
+		</div>
 	</div>
+</div>
 
 
 
-	<style>
+<style>
+	.card-form {
+		width: 100%;
+		border-radius: 10px;
+		background: white;
+		box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+	}
+
+	.card-form .form-title {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 80px;
+		font-size: 20px;
+		font-weight: bold;
+		background: #27ae60;
+		border-radius: 10px 10px 0 0;
+		color: #e8ebed;
+	}
+
+	.card-form .form-body {
+		padding: 10px;
+	}
+
+	.card-form .form-body .row {
+		display: flex;
+		justify-content: space-around;
+		padding: 10px;
+	}
+
+	.card-form .form-body .row input[type=text],
+	input[type=number],
+	textarea,
+	select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		width: 100%;
+		margin: 0 15px;
+		height: 50px;
+		padding: 5px 15px;
+		border-radius: 5px;
+		outline: none;
+		border: none;
+		background: #e8ebed;
+		color: #576366;
+		font-size: 14px;
+	}
+
+	.card-form .rule {
+		height: 2px;
+		background: #e8ebed;
+		margin: 0px 35px;
+	}
+
+	.card-form .form-footer {
+		margin: 0 25px 15px 25px;
+		padding: 15px 10px;
+	}
+
+	.card-form .form-footer button {
+		display: inline-block;
+		height: 40px;
+		border: none;
+		border-radius: 5px;
+		padding: 5px 15px;
+		background: #27ae60;
+		margin-right: 10px;
+		font-size: 17px;
+		color: white;
+		cursor: pointer;
+	}
+
+	.card-form .form-footer span {
+		margin-left: 8px;
+	}
+
+	@media only screen and (min-width: 720px) {
 		.card-form {
-			width: 100%;
-			border-radius: 10px;
-			background: white;
-			box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+			width: 500px;
 		}
-
-		.card-form .form-title {
-			width: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 80px;
-			font-size: 20px;
-			font-weight: bold;
-			background: #27ae60;
-			border-radius: 10px 10px 0 0;
-			color: #e8ebed;
-		}
-
-		.card-form .form-body {
-			padding: 10px;
-		}
-
-		.card-form .form-body .row {
-			display: flex;
-			justify-content: space-around;
-			padding: 10px;
-		}
-
-		.card-form .form-body .row input[type=text],
-		input[type=number],textarea,select {
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none;
-			width: 100%;
-			margin: 0 15px;
-			height: 50px;
-			padding: 5px 15px;
-			border-radius: 5px;
-			outline: none;
-			border: none;
-			background: #e8ebed;
-			color: #576366;
-			font-size: 14px;
-		}
-
-		.card-form .rule {
-			height: 2px;
-			background: #e8ebed;
-			margin: 0px 35px;
-		}
-
-		.card-form .form-footer {
-			margin: 0 25px 15px 25px;
-			padding: 15px 10px;
-		}
-
-		.card-form .form-footer button {
-			display: inline-block;
-			height: 40px;
-			border: none;
-			border-radius: 5px;
-			padding: 5px 15px;
-			background: #27ae60;
-			margin-right: 10px;
-			font-size: 17px;
-			color: white;
-			cursor: pointer;
-		}
-
-		.card-form .form-footer span {
-			margin-left: 8px;
-		}
-
-		@media only screen and (min-width: 720px) {
-			.card-form {
-				width: 500px;
-			}
-		}
-	</style>
- 
+	}
+</style>
 
 
 
@@ -154,4 +156,5 @@
 
 
 
-	{% endblock %}
+
+{% endblock %}

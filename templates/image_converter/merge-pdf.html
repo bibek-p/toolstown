@@ -2,10 +2,11 @@
 {% block body%}
 <link rel="stylesheet" type="text/css" href="/static/css/mergepdf.css">
 
+<form action="" method="POST" enctype="multipart/form-data">
+
 <div class="section">
 	<div class="container">
 		<div class="row">
-			<form action="" method="POST" enctype="multipart/form-data">
 				{% csrf_token %}
 				<div class="col-12">
 					<div class="upload-file">
@@ -17,7 +18,7 @@
 						</div>
 						<div class="upload-wrapper">
 							<label>
-								<input type="file" name="files[]" id="files" multiple accept="application/pdf">
+								<input type="file" name="files" id="files" multiple accept="application/pdf">
 								<p>Drop your files here. <br>or <a>Browse</a></p>
 							</label>
 						</div>
@@ -32,15 +33,16 @@
 					<output id="image-gallery"></output>
 				</div>
 
-				<button class="cssbuttons-io-button" id="mergerb"> Get started
+				<button class="cssbuttons-io-button" id="mergerb" type="submit"> Merge All PDF
 					<div class="icon">
 					<svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
 					</div>
 				</button>
-			</form>
 		</div>
 	</div>
 </div>
+</form>
+
 
 <script src="/static/js/mergepdf.js"></script>
 
