@@ -6,18 +6,32 @@ from django.shortcuts import render
 import requests,json
 import hashlib
 import base64
+from bomber.models import ToolsDetails
 
 
 def md5_generator(request):
+
+    if request.path == "/encryption-decryption/md5-generator":
+        page_details=ToolsDetails.objects.filter(toolsname="MD5 Hash Generator")
+    page_details={"page_details":page_details}
+    
     if request.method == 'POST':
         text=request.POST["text"]
         result = hashlib.md5(text.encode("utf-8")).hexdigest()
-        return render(request, 'encryption_decryption/md5-generator.html', {
-                'output': result,'input_text': text
-            })
-    return render(request,"encryption_decryption/md5-generator.html")
+        page_details['output']=result
+        page_details['input_text']=text
+    #     return render(request, 'encryption_decryption/md5-generator.html', {
+    #             'output': result,'input_text': text
+    #         })
+
+    return render(request,"encryption_decryption/md5-generator.html",page_details)
 
 def base64_encode_decode(request):
+    if request.path == "/encryption-decryption/base64-encode":
+        page_details=ToolsDetails.objects.filter(toolsname="Base64 Encode")
+    else:
+        page_details=ToolsDetails.objects.filter(toolsname="Base64 Decode")
+    page_details={"page_details":page_details}
     if request.method == 'POST':
         text=request.POST["text"]
         optype=request.POST["type"]
@@ -33,12 +47,28 @@ def base64_encode_decode(request):
             sample_string_bytes = base64.b64decode(base64_bytes)
             result = sample_string_bytes.decode("ascii")
 
-        return render(request, 'encryption_decryption/base64-encode-decode.html', {
-                'output': result,'input_text': text,'op_type':optype
-            })
-    return render(request,"encryption_decryption/base64-encode-decode.html")
+        page_details['output']=result
+        page_details['input_text']=text
+        page_details['op_type']=optype
+        # return render(request, 'encryption_decryption/base64-encode-decode.html', {
+        #         'output': result,'input_text': text,'op_type':optype
+        #     })
+    return render(request,"encryption_decryption/base64-encode-decode.html",page_details)
 
 def ssh_generators(request):
+    if request.path == "/encryption-decryption/sha512-hash-generator":
+        page_details=ToolsDetails.objects.filter(toolsname="SHA512 Generator")
+    if request.path == "/encryption-decryption/sha256-hash-generator":
+        page_details=ToolsDetails.objects.filter(toolsname="SHA256 Generator")
+    if request.path == "/encryption-decryption/sha348-hash-generator":
+        page_details=ToolsDetails.objects.filter(toolsname="SHA348 Generator")
+    if request.path == "/encryption-decryption/sha224-hash-generator":
+        page_details=ToolsDetails.objects.filter(toolsname="SHA224 Generator")
+    if request.path == "/encryption-decryption/sha1-hash-generator":
+        page_details=ToolsDetails.objects.filter(toolsname="SHA1 Generator")
+     
+
+    page_details={"page_details":page_details}
     if request.method == 'POST':
         text=request.POST["text"]
         optype=request.POST["type"]
@@ -57,12 +87,16 @@ def ssh_generators(request):
         else:
             optype="SHA1"
             result = hashlib.sha1(text.encode())
+
+        page_details['output']=result
+        page_details['input_text']=text
+        page_details['op_type']=optype
          
 
-        return render(request, 'encryption_decryption/sha-hash-generator.html', {
-                'output': result.hexdigest(),'input_text': text,'op_type':optype
-            })
-    return render(request,"encryption_decryption/sha-hash-generator.html")
+        # return render(request, 'encryption_decryption/sha-hash-generator.html', {
+        #         'output': result.hexdigest(),'input_text': text,'op_type':optype
+        #     })
+    return render(request,"encryption_decryption/sha-hash-generator.html",page_details)
 
 
 def audio_tobase64(request):

@@ -1,14 +1,5 @@
 {% extends "../layout.html" %}
 
-{% block meta %}
-  <title>Audio to Base64 - Online</title>
- <meta name="description" content="This website will help you to convert audio to base64 or mp3 to base64.you need to choose only a audio file it will convert audio to base64 automatically with in a sec." />
-  <meta name="keywords" content="Audio to Base64, mp3 to Base64, music to Base64, tool,base64 decode and encode python,base64 decode and encode in java,base64 decode and encode in php,base64 decode and encode c#,base64 decode and encode linux,base64 encode decode js,base64 decode encode javascript,base64 decode encode nodejs,base64 decode and encode - online,base64 encode and decode android,base64 java encode and decode a string,base64 encode and decode in angularjs,base64 decode encode bash,decode base64 encoded binary data,decode base64 encoded byte array,decode base64-encoded binary data object,base64_encode and base64_decode in php,base64 encode and decode in spring boot,decode base64 encoded certificate,base64 encode and decode command,base64 encode and decode converter,base64 encode and decode command line,base64 encode and decode in codeigniter,base64 encode and decode in c,base64 encode c program,base64 decode c library,base64 decode encode download,base64 encode to decode,convert base64 encode to decode,base64 encode and decode example in java,base64 encode and decode php,encode to decode base64,base64 decode encode function,base64 decode encode file,decode base64 encoded file java,decode base64 encoded file python,google base64 decode and encode,g base64_decode example,how to decode and encode base64,how to decode the base64-encoded string,decode base64 encoded image,base64 encode and decode in javascript,base64 encode and decode in c#,base64 encode and decode in python,base64 encode and decode in php online,base64 encode and decode image in php,base64 encode and decode using java,base64 encode and decode image in java,base64 encoding and decoding in javascript,decode string base64 javascript,how to decode a base64 encoded string in javascript,encoding in base64,base64 encode and decode in mssql,base64 decode encode npm,base64 decode and encode online,base64 decode encode offline,base64 decode encode open source,base64 decode and encode php,base64 decode encode program,decode base64 encoded pdf,base64 encode and decode powershell,base64 encode and decode image python,jquery base64 encode and decode in php,base64_encode decode,base64-encoded data in parameter,base64 decoder and encoder,decode base64 encoded string,decode base64 encoded string java,decode base64 encoded string python,decode base64 encoded string javascript,decode base64 encoded string c#,decode base64 encoded string powershell,decode base64 encoded string linux,decode base64 encoded string with salt,base64 encoding and decoding,base64 encoding and decoding in c#,base64 decode to encode,base64 encode and decode tool,base64 encode decode example,base64 decode url encode,decode base64-encoded utf-8 string,base64 encode and decode using javascript,encode and decode using base64,decoding base64 encoded url,base64 decode vs encode,decode base64 encoded value,base64 encode and decode in php,what is encoding base64,decode base64 encoded xml,base64 encoding tutorial,decode base64 encoded zipped string,base64 decode rfc 4648,base 65 encoding,base64 encoded data example,base64 encoding and decoding in python,decoding from base64,decode a base64 encoded string,decode string to base64,base64 encoding/decoding,base64 encryption decryption,base64 encryption example,base64 encoding decoding python,java 8 base64 encode and decode" />
-  <meta name="robots" content="index, follow" />
-<meta name="language" content="English">
-<meta name="revisit-after" content="1 days">
-<meta name="author" content="Tools Band">
-{% endblock meta %}
 
 {% block body%}
 <div class="section">
@@ -17,159 +8,173 @@
 			<div class="col-sm-6" style="margin: auto;">
 				<div class="card-form">
 
-                     {% if output %}
-								<!-- output -->
-                                <div class="form-title">Your {{ op_type }} Output</div>
-								<table class="ui table definition striped celled">
-									<tbody>
-										<tr>
-											<td>Your String</td>
-											<td>{{ input_text }}</td>
-										</tr>
-										<tr>
-											<td>{{ op_type }} Generated String Below</td>
-											<td>
-												{{ output }}
-											</td>
-										</tr>
-									 
-									</tbody>
-								</table>
+					{% if output %}
+					<!-- output -->
+					<div class="form-title">Your {{ op_type }} Output</div>
+					<table class="ui table definition striped celled">
+						<tbody>
+							<tr>
+								<td>Your String</td>
+								<td>{{ input_text }}</td>
+							</tr>
+							<tr>
+								<td>{{ op_type }} Generated String Below</td>
+								<td>
+									{{ output }}
+								</td>
+							</tr>
 
-                                <div class="rule"></div>
-								<div class="form-footer">
-									<button  type="button" onclick="location.reload();">Generate New</button>
-									 
-								</div>
-                    {% else %}
+						</tbody>
+					</table>
+
+					<div class="rule"></div>
+					<div class="form-footer">
+						<button type="button" onclick="location.reload();">Generate New</button>
+
+					</div>
+					{% else %}
 					<form class="signup" action="" method="post">
 						<div class="form-title">>Audio File To Base64 Convertion</div>
 						<div class="form-body">
 
-                             <div class="row">
-                                 <label>Upload a audio file</label>
-                                <input oninput="audioToBase64(this.files[0]).then(result => document.getElementById('base64f').innerHTML=result)" type="file">
-								</div>
+							<div class="row">
+								<label>Upload a audio file</label>
+								<input
+									oninput="audioToBase64(this.files[0]).then(result => document.getElementById('base64f').innerHTML=result)"
+									type="file">
+							</div>
 
-							    <div class="row">
-								<textarea id="base64f" placeholder="Upload A Audio File Your Result Will Be Here" required style="height: 115px;" name="text"></textarea>
-								</div>
-                                
-                                 
-                                
-								<div class="rule"></div>
-							
-								{% csrf_token %}
+							<div class="row">
+								<textarea id="base64f" placeholder="Upload A Audio File Your Result Will Be Here"
+									required style="height: 115px;" name="text"></textarea>
+							</div>
+
+
+
+							<div class="rule"></div>
+
+							{% csrf_token %}
 
 
 					</form>
-                    {% endif %}
+					{% endif %}
 				</div>
 			</div>
 		</div>
 		<br>
 
 	</div>
+</div>
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8" style="margin: auto;">
+				{{ page_details.0.main_content |safe }}
+			</div>
+		</div>
 	</div>
+</div>
 
 
+<style>
+	.card-form {
+		width: 100%;
+		border-radius: 10px;
+		background: white;
+		box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+	}
 
-	<style>
+	.card-form .form-title {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 80px;
+		font-size: 20px;
+		font-weight: bold;
+		background: #27ae60;
+		border-radius: 10px 10px 0 0;
+		color: #e8ebed;
+	}
+
+	.card-form .form-body {
+		padding: 10px;
+	}
+
+	.card-form .form-body .row {
+		display: flex;
+		justify-content: space-around;
+		padding: 10px;
+	}
+
+	.card-form .form-body .row input[type=text],
+	input[type=number],
+	textarea,
+	select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		width: 100%;
+		margin: 0 15px;
+		height: 50px;
+		padding: 5px 15px;
+		border-radius: 5px;
+		outline: none;
+		border: none;
+		background: #e8ebed;
+		color: #576366;
+		font-size: 14px;
+	}
+
+	.card-form .rule {
+		height: 2px;
+		background: #e8ebed;
+		margin: 0px 35px;
+	}
+
+	.card-form .form-footer {
+		margin: 0 25px 15px 25px;
+		padding: 15px 10px;
+	}
+
+	.card-form .form-footer button {
+		display: inline-block;
+		height: 40px;
+		border: none;
+		border-radius: 5px;
+		padding: 5px 15px;
+		background: #27ae60;
+		margin-right: 10px;
+		font-size: 17px;
+		color: white;
+		cursor: pointer;
+	}
+
+	.card-form .form-footer span {
+		margin-left: 8px;
+	}
+
+	@media only screen and (min-width: 720px) {
 		.card-form {
-			width: 100%;
-			border-radius: 10px;
-			background: white;
-			box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+			width: 500px;
 		}
+	}
 
-		.card-form .form-title {
-			width: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 80px;
-			font-size: 20px;
-			font-weight: bold;
-			background: #27ae60;
-			border-radius: 10px 10px 0 0;
-			color: #e8ebed;
-		}
-
-		.card-form .form-body {
-			padding: 10px;
-		}
-
-		.card-form .form-body .row {
-			display: flex;
-			justify-content: space-around;
-			padding: 10px;
-		}
-
-		.card-form .form-body .row input[type=text],
-		input[type=number],textarea,select {
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none;
-			width: 100%;
-			margin: 0 15px;
-			height: 50px;
-			padding: 5px 15px;
-			border-radius: 5px;
-			outline: none;
-			border: none;
-			background: #e8ebed;
-			color: #576366;
-			font-size: 14px;
-		}
-
-		.card-form .rule {
-			height: 2px;
-			background: #e8ebed;
-			margin: 0px 35px;
-		}
-
-		.card-form .form-footer {
-			margin: 0 25px 15px 25px;
-			padding: 15px 10px;
-		}
-
-		.card-form .form-footer button {
-			display: inline-block;
-			height: 40px;
-			border: none;
-			border-radius: 5px;
-			padding: 5px 15px;
-			background: #27ae60;
-			margin-right: 10px;
-			font-size: 17px;
-			color: white;
-			cursor: pointer;
-		}
-
-		.card-form .form-footer span {
-			margin-left: 8px;
-		}
-
-		@media only screen and (min-width: 720px) {
-			.card-form {
-				width: 500px;
-			}
-		}
-        /* #base64f{
+	/* #base64f{
             display:none;
         } */
-	</style>
-	
+</style>
+
 <script>
-    async function audioToBase64(audioFile) {
-  return new Promise((resolve, reject) => {
-    let reader = new FileReader();
-    reader.onerror = reject;
-    reader.onload = (e) => resolve(e.target.result);
-    reader.readAsDataURL(audioFile);
-  });
-}
-    
+	async function audioToBase64(audioFile) {
+		return new Promise((resolve, reject) => {
+			let reader = new FileReader();
+			reader.onerror = reject;
+			reader.onload = (e) => resolve(e.target.result);
+			reader.readAsDataURL(audioFile);
+		});
+	}
+
 </script>
 
 
@@ -177,4 +182,4 @@
 
 
 
-	{% endblock %}
+{% endblock %}
