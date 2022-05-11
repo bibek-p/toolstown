@@ -140,7 +140,7 @@ def image_to_pdf(request):
             return render(request, 'image_converter/image-to-pdf.html', {
                 'error': "You have uploaded invalid image format. Allowed Format Are JPG,JPEG,PNG."
             })
-    page_details=ToolsDetails.objects.filter(toolsname="PNG To JPG")
+    page_details=ToolsDetails.objects.filter(toolsname="Image To PDF")
     page_details={"page_details":page_details}
     return render(request,"image_converter/image-to-pdf.html",page_details)
 
