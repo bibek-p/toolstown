@@ -20,9 +20,10 @@ from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 def index(request):
-    return render(request, '404.html', {
-                'error': "You have uploaded invalid image format"
-            })
+    page_details=Blogs.objects.all()
+    page_details={"page_details":page_details}
+    return render(request, 'blog/index.html', page_details)
+    
 def details(request,weblink):
     page_details=Blogs.objects.filter(link=weblink)
     if len(page_details)==1:
