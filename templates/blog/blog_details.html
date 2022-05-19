@@ -1,0 +1,136 @@
+{% extends "../layout.html" %}
+
+
+
+{% block body%}
+<div class="section">
+    <div class="container">
+        <div class="row">
+
+            <!-- posts section starts  -->
+
+            <section class="container" id="posts">
+
+                <div class="posts-container">
+
+                    <div class="post">
+                        <img src="{{ page_details.0.blog_image }}" alt="{{ page_details.0.blog_heading }}" class="image">
+                        <div class="date">
+                            <i class="far fa-clock"></i>
+                            <span>{{ page_details.0.publish_date }}</span>
+                        </div>
+                        <h3 class="title">{{ page_details.0.blog_heading }}</h3>
+                        <p class="text">{{ page_details.0.blog_content |safe }}</p>
+                       
+
+
+                        <!-- <div class="links">
+                            <a href="#" class="user">
+                                <i class="far fa-user"></i>
+                                <span>by admin</span>
+                            </a>
+                            <a href="#" class="icon">
+                                <i class="far fa-comment"></i>
+                                <span>(45)</span>
+                            </a>
+                            <a href="#" class="icon">
+                                <i class="far fa-share-square"></i>
+                                <span>(29)</span>
+                            </a>
+                        </div> -->
+
+                    </div>
+
+                </div>
+
+            
+            </section>
+
+            <!-- posts section ends -->
+
+        </div>
+    </div>
+</div>
+
+
+<style>
+
+
+
+.container .posts-container .post{
+    width:100%;
+    padding:2rem;
+    background:#fff;
+    border:var(--border);
+    border-radius: .5rem;
+    margin-bottom: 1.5rem;
+}
+
+.container .posts-container .post .image{
+    height: 400px;
+    width:100%;
+    border-radius: .5rem;
+    object-fit: cover;
+}
+
+.container .posts-container .post .date{
+    padding-top: 2rem;
+    font-size: 15px;
+    color:var(--orange);
+}
+
+.container .posts-container .post .title{
+    padding-top: 1.5rem;
+    font-size: 30px;
+    color:var(--black);
+}
+
+.container .posts-container .post .text{
+    color:var(--light-color);
+    font-size: 15px;
+    line-height: 1.7;
+    padding:1rem 0;
+    text-align: inherit;
+}
+
+.container .posts-container .links{
+    border-top: var(--border);
+    margin-top: .5rem;
+    padding-top: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.container .posts-container .links .user{
+    margin-right: auto;
+}
+
+.container .posts-container .links .icon{
+    padding-right: 1rem;
+}
+
+.container .posts-container .links a{
+    font-size: 1.5rem;
+    color:var(--light-color);
+}
+
+.container .posts-container .links a i{
+    padding-right: .2rem;
+    color:var(--black);
+}
+
+.container .posts-container .links a:hover{
+    color:var(--orange);
+}
+
+.container .posts-container .links a:hover i{
+    color:var(--orange);
+}
+@media only screen and (max-width: 600px) {
+.container .posts-container .post .image {
+    height: auto;
+  }
+}
+
+</style>
+{% endblock %}
