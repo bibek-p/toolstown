@@ -24,6 +24,42 @@ def index(request):
     page_details={"page_details":page_details}
     return render(request, 'blog/index.html', page_details)
 
+
+def rssfeed(request):
+    now = datetime.now()
+
+    rss_test='''<?xml version="1.0" encoding="utf-8"?>
+                <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+                    <channel>
+                            <title>ToolsBand Blogs</title>
+                            <link>https://toolsband.com/blog/</link>
+                            <description>
+                                New posts of my blog.</description>
+                            <atom:link href="https://toolsband.com/blog/feed/rss" rel="self">
+                            </atom:link>
+                            <language>en-us</language>'''
+    rss_test=rss_test+"<lastbuilddate>"+now.strftime("%d/%m/%Y %H:%M:%S")+"</lastbuilddate>"
+    ress_end='</channel></rss>'
+    
+    feed_item=''
+    page_details=Blogs.objects.all()
+    for i in range(len(page_details)):
+        start='<item>'
+        titel='<title>'+page_details[0].blog_heading+'</title>'
+        link='<link> https://toolsband.com/blog'+page_details[0].link+'</link>'
+        description='<description>'+page_details[0].blog_content+'</description>'
+        guid='<guid> https://toolsband.com/blog'+page_details[0].link+'</guid>'
+        end='</item>'
+        feed_item=feed_item+start+titel+link+description+guid+end
+    
+    final_feed=rss_test+feed_item+ress_end
+
+
+
+    return HttpResponse(final_feed)
+
+
+
 def details(request,weblink):
     page_details=Blogs.objects.filter(link=weblink)
     if len(page_details)==1:
