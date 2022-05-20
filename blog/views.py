@@ -23,7 +23,7 @@ def index(request):
     page_details=Blogs.objects.all()
     page_details={"page_details":page_details}
     return render(request, 'blog/index.html', page_details)
-    
+
 def details(request,weblink):
     page_details=Blogs.objects.filter(link=weblink)
     if len(page_details)==1:
@@ -55,7 +55,9 @@ def createpost(request):
             req=json.loads(req)
             print("===>",req)
             post=Blogs()
-            post.original_heading= req['original_heading']
+            original_heading=req['original_heading']
+            original_heading=original_heading.strip()
+            post.original_heading= original_heading
             post.blog_heading= req['blog_heading']
             
             post.blog_image= req['blog_image']
@@ -69,6 +71,8 @@ def createpost(request):
             blog_heading=blog_heading.replace(".","")
             blog_heading=blog_heading.replace("?","")
             blog_heading=blog_heading.replace(" ","-")
+            blog_heading=blog_heading.replace("/","")
+            blog_heading=blog_heading.replace("\'","")
 
             if blog_heading[0]=="-":
                 blog_heading = blog_heading[1:]
@@ -78,11 +82,19 @@ def createpost(request):
             post.link= blog_heading.lower()
             text=req['blog_content']
             text=text.split(".")
+            print("===>",text)
+            thing="Likewise READ:"
+            for i in range(len(text)):
+                if len(text) > i:
+                    sentense=text[i]
+                    if thing in sentense:
+                        text.remove(sentense)
+
             round_para_n=round(len(text)/8)
             mainpara=""
             for i in range(1,round_para_n+1):
                 first_list=text[(i-1)*8:i*8]
-                para="".join(first_list)
+                para=".".join(first_list)
                 if i != 1:
                     mainpara=mainpara+".<br><br>"+para
                 else:
