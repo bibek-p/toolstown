@@ -12,7 +12,8 @@ class Blogs(models.Model):
     link = models.CharField(max_length=255)
 
     class Meta:
-        ordering = ['created_on']
+        ordering = ['-created_on']
 
         def __unicode__(self):
             return self.blog_heading
+    

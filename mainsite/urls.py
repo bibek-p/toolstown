@@ -19,6 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from . import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('bomber/', include('bomber.urls')),
@@ -31,7 +32,8 @@ urlpatterns = [
     path("contact",views.contact,name="Contact Us"),
     path("about-us",views.about_us,name="About Us"),
     path('editor/', include('django_summernote.urls')),
-    path('blog/', include('blog.urls')),
+    path('blog/', include('blog.urls'), name='blog'),
+    # path('blog', include(('blog.urls', 'blog'), namespace='blog'))
 
     
 ]
