@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>{{ page_details_header.page_titel }}</title>
+  <meta name="description" content="{{ page_details_header.page_description }}" />
+  <meta name="keywords" content="{{ page_details_header.keyword }}" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="1 days">
+  <meta name="author" content="{{ page_details_header.author }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" type="image/x-icon" href="/static/images/icon/favicon.ico">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6550F1166T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-6550F1166T');
+  </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3641869839302421"
+    crossorigin="anonymous"></script>
+
+</head>
+
+<body translate="no">
+
+  <body class="hero-anime">
+    {% load static %}
+    <div class="navigation-wrap bg-light start-header start-style">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="navbar navbar-expand-md navbar-light">
+              <a class="navbar-brand" href="/"><img src="/static/images/logo.png" alt=""></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto py-4 py-md-0">
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <a class="nav-link" href="/">Home</a>
+                  </li>
+
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                      aria-haspopup="true" aria-expanded="false">Image & PDF</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="/image-converter/jpg-to-png">JPG To PNG Image Converter</a>
+                                    <a class=" dropdown-item" href="/image-converter/jpeg-to-png">JPEG To PNG Image
+                        Converter</a>
+                      <a class="dropdown-item" href="/image-converter/png-to-jpg">PNG To JPG Image Converter</a>
+                      <a class="dropdown-item" href="/image-converter/png-to-jpeg">PNG To JPEG Image Converter</a>
+                      <a class="dropdown-item" href="/image-converter/image-to-pdf">Image To PDF Converter</a>
+                    </div>
+                  </li>
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                      aria-haspopup="true" aria-expanded="false">Text Converter</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="/text-converter/text-to-uppercase"">Text To Upper Case</a>
+                                    <a class=" dropdown-item" href="/text-converter/text-to-lowercase">Text To Lower
+                        Case</a>
+                      <a class="dropdown-item" href="/text-converter/text-to-capitalize">Text To Capitalize</a>
+                      <a class="dropdown-item" href="/text-converter/replace-text">Replace Text</a>
+                      <a class="dropdown-item" href="/text-converter/remove-space">Remove Space</a>
+                      <a class="dropdown-item" href="/text-converter/text-reverse">Text Reverse</a>
+                      <a class="dropdown-item" href="/text-converter/repeat-text">Repeat Text</a>
+                      <a class="dropdown-item" href="/text-converter/word-count">Word Count</a>
+                      <a class="dropdown-item" href="/text-converter/text-file-to-json">Text File to JSON Object
+                        Converter</a>
+                      <a class="dropdown-item" href="/text-converter/json-to-php-array">Convert Json to PHP Array</a>
+                    </div>
+                  </li>
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                      aria-haspopup="true" aria-expanded="false">Encryption & Decryption</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="/encryption-decryption/md5-generator">MD5 Generator</a>
+                      <a class="dropdown-item" href="/encryption-decryption/base64-encode">Base 64 Encode Encoded</a>
+                      <a class="dropdown-item" href="/encryption-decryption/base64-decoded">Base 64 Encode Decode</a>
+                      <a class="dropdown-item" href="/encryption-decryption/sha512-hash-generator">SHA-512 Hash
+                        Generator</a>
+                      <a class="dropdown-item" href="/encryption-decryption/sha256-hash-generator">SHA-256 Hash
+                        Generator</a>
+                      <a class="dropdown-item" href="/encryption-decryption/sha384-hash-generator">SHA-384 Hash
+                        Generator</a>
+                      <a class="dropdown-item" href="/encryption-decryption/sha224-hash-generator">SHA-224 Hash
+                        Generator</a>
+                      <a class="dropdown-item" href="/encryption-decryption/sha1-hash-generator">SHA-1 Hash
+                        Generator</a>
+                      <a class="dropdown-item" href="/encryption-decryption/audio-to-base64">Audio To Base64 , Mp3 to
+                        Base64</a>
+                    </div>
+                  </li>
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <a class="nav-link" href="/bomber/sms-bomber">SMS Bomber</a>
+                  </li>
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <a class="nav-link" href="/blog">Blog</a>
+                  </li>
+
+
+
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    {% block body %} {% endblock %}
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 footer-column">
+            <ul class="nav flex-column">
+
+              <li class="nav-item">
+                <span class="footer-title">Our Tools</span>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/image-converter/jpg-to-png"">JPG To PNG Image Converter</a>
+          </li>
+          <li class=" nav-item">
+                  <a class="nav-link" href="/image-converter/jpeg-to-png">JPEG To PNG Image Converter</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/image-converter/png-to-jpg">PNG To JPG Image Converter</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/image-converter/png-to-jpeg">PNG To JPEG Image Converter</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/image-converter/image-to-pdf">Image To PDF Converter</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 footer-column">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <span class="footer-title">More Tools</span>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/text-converter/text-to-uppercase"">Text To Upper Case</a>
+          </li>
+          <li class=" nav-item">
+                  <a class="nav-link" href="/text-converter/text-to-lowercase">Text To Lower Case</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/text-converter/text-to-capitalize">Text To Capitalize</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/text-converter/replace-text">Replace Text</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/text-converter/remove-space">Remove Space</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 footer-column">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <span class="footer-title">About & Contact</span>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/about-us">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/privacy-policy">Privacy Policy</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/terms-and-condition">Terms of Use</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+
+
+
+        <div class="row text-center" style="margin-top: 30px;-align: right !important;">
+          <div class="col-md-12 box">
+            <span class="copyright quick-links">Copyright &copy; ToolsBand
+              <script>document.write(new Date().getFullYear())</script>
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+  </body>
+
+  <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+
+</body>
+
+</html>
