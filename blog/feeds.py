@@ -23,7 +23,6 @@ class LatestPostsFeed(Feed):
 
     def item_description(self, item):
         dec = truncatewords(item.blog_content, 30)
-        dec = dec[:-1]
         img='<img border="0" hspace="10" align="left" style="margin-top:3px;margin-right:5px;" src="'+item.blog_image+'" />'
         return img+dec
 
