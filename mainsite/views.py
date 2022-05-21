@@ -9,7 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 def index_home(request):
     page_details=Blogs.objects.all()[:50]
     page_details={"page_details":page_details}
-    return render(request, 'blog/index.html', page_details)
+    return render(request, 'blog/index_sample.html', page_details)
 
 def page_not_found_view(request, exception):
     return render(request, '404.html', status=404)
