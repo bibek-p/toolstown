@@ -7,8 +7,8 @@ urlpatterns = [
     path("",views.index,name="Blog Index"),
     path("create",views.createpost,name="createpost Index"),
     path("headcheck",views.is_headingexits,name="headcheck Index"),
-    path("feed/rss",views.rssfeed,name="Rssfeed Index"),
-    path('feed/', LatestPostsFeed(), name='latest_feed'),
+    # path("feed/rss",views.rssfeed,name="Rssfeed Index"),
+    path('feed/rss', LatestPostsFeed(), name='latest_feed'),
 
    
 ]
