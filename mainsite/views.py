@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 def index_home(request):
-    page_details=Blogs.objects.all()[:50]
+    page_details=Blogs.objects.all()[:60]
     page_details={"page_details":page_details}
     return render(request, 'blog/index_sample.html', page_details)
 
