@@ -140,6 +140,8 @@ def createpost(request):
             restpara="".join(restpara)
             mainpara=mainpara+".<br><br>"+restpara+" ."
             post.blog_content= mainpara
+            post.keyword=req['keywords']
+            post.category=req['category']
             post.save()
             return HttpResponse("====> Added New post")
                 

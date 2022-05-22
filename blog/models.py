@@ -10,6 +10,8 @@ class Blogs(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     content_source = models.CharField(max_length=255)
     link = models.CharField(max_length=255)
+    keyword = models.CharField(max_length=255,blank=True)
+    category= models.CharField(max_length=255,blank=True)
 
     class Meta:
         ordering = ['-created_on']
