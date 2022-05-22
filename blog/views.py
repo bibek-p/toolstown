@@ -64,6 +64,7 @@ def details(request,weblink):
     page_details=Blogs.objects.filter(link=weblink)
     if len(page_details)==1:
         page_details[0].page_titel=page_details[0].blog_heading
+        page_details[0].page_description= truncatewords(page_details[0].blog_content, 30) 
         page_details={"page_details":page_details}
         return render(request, 'blog/blog_details.html',page_details)
     else:
