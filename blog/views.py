@@ -15,6 +15,7 @@ from PyPDF2 import PdfFileMerger, PdfFileReader
 from bomber.models import ToolsDetails
 from .models import Blogs
 from django.views.decorators.csrf import csrf_exempt
+from django.template.defaultfilters import truncatewords
 
 
 # Create your views here.
