@@ -103,6 +103,8 @@ def createpost(request):
             post.publish_date= str(datetime.today().strftime("%b %d %Y"))
             post.content_source= req['content_source']
             blog_heading=req['blog_heading']
+            twwet_quote=req["twwet_quote"]
+            twwet_quote=twwet_quote.split("===>")
             
             blog_heading=blog_heading.replace(",","")
             blog_heading=blog_heading.replace('"',"-")
@@ -135,12 +137,19 @@ def createpost(request):
                 first_list=text[(i-1)*8:i*8]
                 para=".".join(first_list)
                 if i != 1:
-                    mainpara=mainpara+".<br><br>"+para
+                    if i <=len(twwet_quote):
+                        mainpara=mainpara+".<br>"+twwet_quote[i]+"<br>"+para
+                        del twwet_quote[i]
+                    else:
+                        mainpara=mainpara+".<br><br>"+para
                 else:
                     mainpara=para
             restpara=text[round_para_n*8::]
             restpara="".join(restpara)
             mainpara=mainpara+".<br><br>"+restpara+" ."
+            if len(twwet_quote) >0:
+                for m in range(len(twwet_quote)):
+                    mainpara=mainpara+twwet_quote[m]
             post.blog_content= mainpara
             post.keyword=req['keywords']
             post.category=req['category']
