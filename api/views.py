@@ -2,6 +2,8 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from blog.models import Blogs
 import json
+from django.views.decorators.csrf import csrf_exempt
+
 
 @api_view(['POST'])
 def headcheck(request):
