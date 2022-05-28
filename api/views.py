@@ -2,8 +2,14 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from blog.models import Blogs
 import json
+from django.shortcuts import render
+from django.core.files.storage import FileSystemStorage
+# Create your views here.
+import os 
+from datetime import datetime
+import random
 from django.views.decorators.csrf import csrf_exempt
-
+from django.template.defaultfilters import truncatewords
 
 @api_view(['POST'])
 def headcheck(request):
