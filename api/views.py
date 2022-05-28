@@ -13,7 +13,7 @@ def headcheck(request):
         return Response(0)
 
 
-
+@csrf_exempt
 def createpost(request):
         req=request.data
         post=Blogs()
