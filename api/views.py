@@ -69,7 +69,7 @@ def createpost(request):
             first_list=text[(i-1)*8:i*8]
             para=".".join(first_list)
             if i != 1:
-                if i <=len(twwet_quote):
+                if i <len(twwet_quote):
                     mainpara=mainpara+".<br>"+twwet_quote[i]+"<br>"+para
                     del twwet_quote[i]
                 else:
