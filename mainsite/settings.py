@@ -25,7 +25,7 @@ SECRET_KEY = '&(p$ghy^&4%lg!n0inrib2jk555j3)7g9iemm_+l=th4cb!xyv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-SECURE_SSL_REDIRECT = True
+# SECURE_SSL_REDIRECT = True
 
 ALLOWED_HOSTS = [
     '*'
@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bomber',
     'django_summernote',
-    'blog'
+    'blog',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [

@@ -33,6 +33,7 @@ urlpatterns = [
     path("about-us",views.about_us,name="About Us"),
     path('editor/', include('django_summernote.urls')),
     path('blog/', include('blog.urls'), name='blog'),
+     path('api/', include('api.urls')),
     # path('blog', include(('blog.urls', 'blog'), namespace='blog'))
 
     
