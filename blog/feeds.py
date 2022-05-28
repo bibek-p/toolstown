@@ -11,7 +11,7 @@ class LatestPostsFeed(Feed):
     description = 'World News: ToolsBand news brings the latest world news headlines, Current International breaking news world wide. In depth analysis and top news headlines world wide.'
 
     def items(self):
-        return Blogs.objects.all()[:20]
+        return Blogs.objects.all()[:50]
 
     def item_title(self, item):
         return item.blog_heading
