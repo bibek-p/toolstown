@@ -16,6 +16,7 @@ def headcheck(request):
 
 
 @csrf_exempt
+@api_view(['POST'])
 def createpost(request):
         req=request.data
         post=Blogs()
