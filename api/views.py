@@ -57,10 +57,13 @@ def createpost(request):
         text=text.split(".")
         print("===>",text)
         thing="Likewise READ:"
+        thing2="Live TV"
         for i in range(len(text)):
             if len(text) > i:
                 sentense=text[i]
                 if thing in sentense:
+                    text.remove(sentense)
+                if thing2 in sentense:
                     text.remove(sentense)
 
         round_para_n=round(len(text)/8)
@@ -79,10 +82,12 @@ def createpost(request):
         restpara=text[round_para_n*8::]
         restpara="".join(restpara)
         mainpara=mainpara+".<br><br>"+restpara+" ."
+        mainpara_origin=mainpara
         if len(twwet_quote) >0:
             for m in range(len(twwet_quote)):
                 mainpara=mainpara+twwet_quote[m]
         post.blog_content= mainpara
+        post.blog_content_original=mainpara_origin
         post.keyword=req['keywords']
         post.category=req['category']
         post.save()
