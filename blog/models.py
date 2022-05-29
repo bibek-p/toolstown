@@ -12,6 +12,7 @@ class Blogs(models.Model):
     link = models.CharField(max_length=255)
     keyword = models.CharField(max_length=255,blank=True)
     category= models.CharField(max_length=255,blank=True)
+    blog_content_original= models.TextField(blank=True)
 
     class Meta:
         ordering = ['-created_on']

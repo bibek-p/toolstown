@@ -26,6 +26,18 @@ def index(request):
     return render(request, 'blog/index.html', page_details)
 
 
+
+def blog_cat(request,cat):
+    page_details=Blogs.objects.extra(where=["LENGTH(blog_content_original) - LENGTH(REPLACE(blog_content_original, ' ', ''))+1 > %s"], params=[1000]).filter(category=cat)[:60]
+    page_details_header={}
+    page_details_header['page_titel']=cat.capitalize()+" News Headlines, Latest International News, World Breaking News - ToolsBand"
+    page_details_header['page_description']=cat.capitalize()+" News: ToolsBand news brings the latest world news headlines, Current International breaking news world wide. In depth analysis and top news headlines world wide."
+    page_details_header['keyword']=cat.capitalize()+" news, latest news, today news, breaking news, news headlines, bollywood news, India news, top news, political news, business news, technology news, sports news"
+    page_details_header['author']="Bibekananda Bhuyan"
+    page_details={"page_details":page_details,"page_details_header":page_details_header}
+    return render(request, 'blog/index.html', page_details)
+
+
 def rssfeed(request):
     now = datetime.now()
 
@@ -147,10 +159,12 @@ def createpost(request):
             restpara=text[round_para_n*8::]
             restpara="".join(restpara)
             mainpara=mainpara+".<br><br>"+restpara+" ."
+            mainpara_origin=mainpara
             if len(twwet_quote) >0:
                 for m in range(len(twwet_quote)):
                     mainpara=mainpara+twwet_quote[m]
             post.blog_content= mainpara
+            post.blog_content_original=mainpara_origin
             post.keyword=req['keywords']
             post.category=req['category']
             post.save()

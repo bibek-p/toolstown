@@ -9,6 +9,9 @@ urlpatterns = [
     path("headcheck",views.is_headingexits,name="headcheck Index"),
     # path("feed/rss",views.rssfeed,name="Rssfeed Index"),
     path('feed/rss', LatestPostsFeed(), name='latest_feed'),
+    # path("/<cat>",views.index,name="Blog Index"),
+    path("<cat>",views.blog_cat,name="blog_cat Page"),
+
 
    
 ]
