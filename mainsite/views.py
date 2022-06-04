@@ -35,7 +35,7 @@ def sitemap(request):
     for i in range(len(page_details)):
         start='<url>'
         print("=====>")
-        link='<loc> https://toolsband.com/blog/'+page_details[0].link+'</loc>'
+        link='<loc> https://toolsband.com/blog/news/'+page_details[0].link+'</loc>'
         lastmod='<lastmod>'+str(page_details[0].created_on)+'</lastmod>'+'<priority>1.00</priority>'
         end='</url>'
         feed_item=feed_item+start+link+lastmod+end
