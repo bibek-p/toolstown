@@ -21,14 +21,15 @@ from django.template.defaultfilters import truncatewords
 # Create your views here.
 
 def index(request):
-    page_details=Blogs.objects.all()[:20]
+    page_details=Blogs.objects.all()[:60]
     page_details={"page_details":page_details}
     return render(request, 'blog/index.html', page_details)
 
 
 
 def blog_cat(request,cat):
-    page_details=Blogs.objects.extra(where=["LENGTH(blog_content_original) - LENGTH(REPLACE(blog_content_original, ' ', ''))+1 > %s"], params=[1000]).filter(category=cat)[:60]
+    # page_details=Blogs.objects.extra(where=["LENGTH(blog_content_original) - LENGTH(REPLACE(blog_content_original, ' ', ''))+1 > %s"], params=[1000]).filter(category=cat)[:60]
+    page_details=Blogs.objects.filter(category=cat)[:60]
     page_details_header={}
     page_details_header['page_titel']=cat.capitalize()+" News Headlines, Latest International News, World Breaking News - ToolsBand"
     page_details_header['page_description']=cat.capitalize()+" News: ToolsBand news brings the latest world news headlines, Current International breaking news world wide. In depth analysis and top news headlines world wide."
