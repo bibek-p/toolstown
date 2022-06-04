@@ -21,6 +21,12 @@ def index_home(request):
     return render(request, 'blog/index_sample.html', page_details)
 
 
+def robots(request):
+     return HttpResponse('''User-agent: *<br>
+                            Disallow: <br>
+                            Disallow: /cgi-bin/ <br>
+                            Sitemap: toolsband.com/sitemap.xml''')
+
 def sitemap(request):
     top_start='''<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
