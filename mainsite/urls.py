@@ -27,6 +27,7 @@ urlpatterns = [
     path('encryption-decryption/', include('encryption_decryption.urls')),
     path('text-converter/', include('text_converter.urls')),
     path("",views.index_home,name="Home Page"),
+    path("ads.txt",views.ads_txt,name="AdsTXT Page"),
     path("sitemap.xml",views.sitemap,name="Sitemap Page"),
     path("robots.txt",views.robots,name="Robot Page"),
     path("terms-and-condition",views.terms_and_condition,name="Terms & Conditions"),

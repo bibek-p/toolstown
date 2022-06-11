@@ -10,7 +10,7 @@ from django.http.response import HttpResponse
 
 def index_home(request):
     # page_details=Blogs.objects.extra(where=["LENGTH(blog_content_original) - LENGTH(REPLACE(blog_content_original, ' ', ''))+1 > %s"], params=[1000]).filter(~Q(category="people"))[:60]
-    page_details=Blogs.objects.filter(~Q(category="people"))[:60]
+    page_details=Blogs.objects.filter(~Q(category="people"))[:12]
     page_details_header={}
     page_details_header['page_titel']="World News Headlines, Latest International News, World Breaking News - ToolsBand"
     page_details_header['page_description']="World News: ToolsBand news brings the latest world news headlines, Current International breaking news world wide. In depth analysis and top news headlines world wide."
@@ -18,8 +18,10 @@ def index_home(request):
     page_details_header['author']="Bibekananda Bhuyan"
     page_details={"page_details":page_details,"page_details_header":page_details_header}
     
-    return render(request, 'blog/index_sample.html', page_details)
+    return render(request, 'home.html', page_details)
 
+def ads_txt(request):
+    return HttpResponse("google.com, pub-3641869839302421, DIRECT, f08c47fec0942fa0")
 
 def robots(request):
      return HttpResponse('''User-agent: *<br>
